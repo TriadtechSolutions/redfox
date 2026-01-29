@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Bootstrap Barrio Subtheme.
+
+redfox.settings:
+  type: bootstrap_barrio.settings
+  label: 'Redfox settings'

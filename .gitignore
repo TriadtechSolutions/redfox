@@ -7,3 +7,4 @@
 /web/sites/*/services*.yml
 /web/sites/*/private
 /web/core/
+/web/themes/contrib/
