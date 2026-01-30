@@ -1,0 +1,21 @@
+uuid: 46fbc80c-81e9-41ec-a32e-fa995e4544ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.field_spindle_thread
+field_name: field_spindle_thread
+entity_type: commerce_product_variation
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

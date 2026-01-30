@@ -1,0 +1,253 @@
+uuid: 5ddd2a5e-7dd8-41f8-b4e1-d3d83036ebaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.attribute_color
+    - field.field.commerce_product_variation.default.field_disc_diameter
+    - field.field.commerce_product_variation.default.field_frequency
+    - field.field.commerce_product_variation.default.field_input_power
+    - field.field.commerce_product_variation.default.field_product_image
+  module:
+    - commerce_feeds
+    - commerce_product
+    - feeds_log
+    - feeds_tamper
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+  feeds_tamper:
+    tampers:
+      4995899e-a313-45b5-a69a-3e746ad99b0b:
+        uuid: 4995899e-a313-45b5-a69a-3e746ad99b0b
+        plugin: create_media_tamper
+        source: image_1
+        weight: 0
+        label: 'Create Media Tamper'
+        media_type: image
+        media_field: field_media_image
+      2449ab7f-cacb-4c9b-b81e-af5a5ff3e8fe:
+        uuid: 2449ab7f-cacb-4c9b-b81e-af5a5ff3e8fe
+        plugin: create_media_tamper
+        source: image_2
+        weight: 0
+        label: 'Create Media Tamper'
+        media_type: image
+        media_field: field_media_image
+      b76677a6-97ec-4761-9650-cca576e1bee0:
+        uuid: b76677a6-97ec-4761-9650-cca576e1bee0
+        plugin: create_media_tamper
+        source: image_3
+        weight: 0
+        label: 'Create Media Tamper'
+        media_type: image
+        media_field: field_media_image
+      df91d74f-68d7-4081-8691-9364d0090558:
+        uuid: df91d74f-68d7-4081-8691-9364d0090558
+        plugin: create_media_tamper
+        source: image_4
+        weight: 0
+        label: 'Create Media Tamper'
+        media_type: image
+        media_field: field_media_image
+label: 'Product variation '
+id: product_variation
+description: ''
+help: ''
+import_period: 3600
+import_period_per_feed: false
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:commerce_product_variation'
+processor_configuration:
+  values:
+    type: default
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  model_no:
+    value: 'Model No.'
+    label: 'Model No.'
+    machine_name: model_no
+    type: csv
+  colour:
+    value: Colour
+    label: Colour
+    machine_name: colour
+    type: csv
+  product_id:
+    value: 'Product Id'
+    label: 'Product Id'
+    machine_name: product_id
+    type: csv
+  disc_diameter:
+    value: 'Disc Diameter'
+    label: 'Disc Diameter'
+    machine_name: disc_diameter
+    type: csv
+  frequency:
+    value: Frequency
+    label: Frequency
+    machine_name: frequency
+    type: csv
+  input_power:
+    value: 'Input Power'
+    label: 'Input Power'
+    machine_name: input_power
+    type: csv
+  price:
+    value: price
+    label: price
+    machine_name: price
+    type: csv
+  image_1:
+    value: 'Image 1'
+    label: 'Image 1'
+    machine_name: image_1
+    type: csv
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  image_2:
+    value: 'Image 2'
+    label: 'Image 2'
+    machine_name: image_2
+    type: csv
+  image_3:
+    value: 'Image 3'
+    label: 'Image 3'
+    machine_name: image_3
+    type: csv
+  image_4:
+    value: 'Image 4'
+    label: 'Image 4'
+    machine_name: image_4
+    type: csv
+mappings:
+  -
+    target: sku
+    map:
+      value: model_no
+    settings: {  }
+    unique:
+      value: 1
+  -
+    target: attribute_color
+    map:
+      target_id: colour
+    settings:
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: color
+  -
+    target: product_id
+    map:
+      target_id: product_id
+    settings:
+      reference_by: product_id
+      autocreate: 0
+      autocreate_bundle: false
+  -
+    target: field_disc_diameter
+    map:
+      value: disc_diameter
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_frequency
+    map:
+      value: frequency
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_input_power
+    map:
+      value: input_power
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: price
+    map:
+      number: price
+    settings:
+      currency_code: INR
+  -
+    target: field_product_image
+    map:
+      target_id: image_1
+    settings:
+      language: ''
+      reference_by: mid
+      autocreate: 1
+      autocreate_bundle: image
+  -
+    target: title
+    map:
+      value: model_no
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_product_image
+    map:
+      target_id: image_2
+    settings:
+      language: ''
+      reference_by: mid
+      autocreate: 0
+      autocreate_bundle: image
+  -
+    target: field_product_image
+    map:
+      target_id: image_3
+    settings:
+      language: ''
+      reference_by: mid
+      autocreate: 0
+      autocreate_bundle: image
+  -
+    target: field_product_image
+    map:
+      target_id: image_4
+    settings:
+      language: ''
+      reference_by: mid
+      autocreate: 0
+      autocreate_bundle: image

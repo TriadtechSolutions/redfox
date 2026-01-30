@@ -1,0 +1,21 @@
+uuid: db7fb164-e32b-459b-ba9a-f810095ea34f
+langcode: en
+status: true
+dependencies:
+  module:
+    - drupal_commerce_razorpay
+id: razorpay
+label: Razorpay
+weight: null
+plugin: razorpay
+configuration:
+  display_label: Razorpay
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: false
+  key_id: rzp_test_S32YEGja0RkVno
+  key_secret: gpDCKptzle9S6LYQAo65SWb7
+  payment_action: capture
+conditions: {  }
+conditionOperator: AND

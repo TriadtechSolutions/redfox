@@ -1,0 +1,13 @@
+uuid: 1dbf209c-4a4e-454a-adb5-b1b397e3fc27
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+_core:
+  default_config_hash: zGcQPC5MWgNSsQxarSWsXNIVpjb_vDAdcDLPupYmxQ8
+id: commerce_order.user
+label: User
+description: ''
+targetEntityType: commerce_order
+cache: true

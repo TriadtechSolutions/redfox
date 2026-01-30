@@ -1,0 +1,21 @@
+uuid: 223f5e3f-991f-4591-8bd7-c217ead716ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.field_no_load_speed
+field_name: field_no_load_speed
+entity_type: commerce_product_variation
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

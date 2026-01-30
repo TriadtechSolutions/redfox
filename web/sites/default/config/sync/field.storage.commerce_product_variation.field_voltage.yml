@@ -1,0 +1,21 @@
+uuid: 81d35950-3de8-45d3-aaa4-dff1c56c927e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.field_voltage
+field_name: field_voltage
+entity_type: commerce_product_variation
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

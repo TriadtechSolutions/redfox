@@ -1,0 +1,19 @@
+uuid: 61d3b2c5-0755-4e67-a6c9-96003e471b2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_power_source_type
+id: commerce_product_variation.default.field_power_source_type
+field_name: field_power_source_type
+entity_type: commerce_product_variation
+bundle: default
+label: 'Power Source Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

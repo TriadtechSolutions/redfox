@@ -1,0 +1,19 @@
+uuid: c16148e5-4a65-4b7a-985a-6cd462d05cd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_no_load_speed
+id: commerce_product_variation.default.field_no_load_speed
+field_name: field_no_load_speed
+entity_type: commerce_product_variation
+bundle: default
+label: 'No Load Speed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

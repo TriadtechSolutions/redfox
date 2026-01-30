@@ -1,0 +1,11 @@
+uuid: 3dd95f16-3b23-4846-b958-d25c974eb615
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.image
+label: Image
+description: ''
+targetEntityType: media
+cache: true

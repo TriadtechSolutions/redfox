@@ -1,0 +1,13 @@
+uuid: 48a566e5-ad88-4bb8-86ac-43a851402789
+langcode: en
+status: false
+dependencies:
+  module:
+    - feeds
+_core:
+  default_config_hash: 8I9Vm3L0dLCdctKfCjpw5vLwMetyaJzxbWNMzb2V7-I
+id: feeds_feed.full
+label: 'Full feed'
+description: ''
+targetEntityType: feeds_feed
+cache: true

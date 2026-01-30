@@ -1,0 +1,22 @@
+uuid: 59c60122-a541-4706-b3c3-0c5ec2da5998
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: product_product_variation
+label: Product/Product-variation
+type: 'canonical_entities:commerce_product'
+pattern: '[commerce_product:title]'
+selection_criteria:
+  b5e0bec9-7ac1-47a6-9ce8-c9c954a45e2e:
+    id: 'entity_bundle:commerce_product'
+    negate: false
+    uuid: b5e0bec9-7ac1-47a6-9ce8-c9c954a45e2e
+    context_mapping:
+      commerce_product: commerce_product
+    bundles:
+      default: default
+selection_logic: and
+weight: 0
+relationships: {  }

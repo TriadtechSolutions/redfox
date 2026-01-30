@@ -1,0 +1,22 @@
+uuid: 73eb50d9-2ee7-4bdb-9208-814dbf49a402
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - redfox
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: redfox_help
+theme: redfox
+region: top_header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

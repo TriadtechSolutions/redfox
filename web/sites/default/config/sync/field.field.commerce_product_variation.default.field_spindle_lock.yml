@@ -1,0 +1,21 @@
+uuid: 0c5e139e-97ba-4b85-9abf-74444694dae2
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_spindle_lock
+id: commerce_product_variation.default.field_spindle_lock
+field_name: field_spindle_lock
+entity_type: commerce_product_variation
+bundle: default
+label: 'Spindle Lock'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,9 @@
+uuid: 9342b520-dfcc-483c-96e0-9894a8f0042f
+langcode: en
+status: true
+dependencies: {  }
+name: Brands
+vid: brands
+description: 'The taxonomy is used for Classification of brands'
+weight: 0
+new_revision: false

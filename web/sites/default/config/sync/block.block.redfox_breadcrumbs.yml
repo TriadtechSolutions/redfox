@@ -1,0 +1,22 @@
+uuid: 93612608-4e44-45f6-94ea-1bbbb9ee0232
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - redfox
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: redfox_breadcrumbs
+theme: redfox
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

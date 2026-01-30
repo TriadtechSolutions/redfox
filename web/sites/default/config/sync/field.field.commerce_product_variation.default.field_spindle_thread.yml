@@ -1,0 +1,19 @@
+uuid: 34281216-35dc-4919-9d08-d7bf9941f766
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_spindle_thread
+id: commerce_product_variation.default.field_spindle_thread
+field_name: field_spindle_thread
+entity_type: commerce_product_variation
+bundle: default
+label: 'Spindle Thread'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
