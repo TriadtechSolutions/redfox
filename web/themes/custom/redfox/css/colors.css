@@ -22,16 +22,18 @@ body {
 }
 
 #navbar-top {
-  background-color: #055a8e;
+  background-color: rgb(172, 4, 1)
+;
 }
 
 #navbar-main {
-  background-color: #1d84c3;
+  background-color: rgb(172, 4, 1);
+  padding: 0 50px;
 }
 
 a,
 .link {
-  color: #0071b3;
+  color: rgb(172, 4, 1);
 }
 
 a:hover,
@@ -112,3 +114,9 @@ a:active,
   right: -20px;
   left: 0;
 }
+
+
+#navbar-main img {
+  width: 120px;
+}
+

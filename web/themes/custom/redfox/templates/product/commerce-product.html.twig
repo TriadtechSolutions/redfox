@@ -1,0 +1,157 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a product.
+ *
+ * Available variables:
+ * - product: The product entity with all its fields.
+ * - product_url: The URL of the product.
+ */
+#}
+
+<article{{attributes.addClass('product-detail')}}>
+	<div
+		class="product-container">
+
+		{# Product Gallery Section #}
+		<div class="product-gallery">
+			{% if product.variation_field_product_image %}
+				<div
+					class="product-images-wrapper">
+					{# Main Image Display #}
+					<div class="main-image-container">
+						{{ product.variation_field_product_image }}
+					</div>
+
+					{# Thumbnail Gallery #}
+					<div class="thumbnail-gallery">
+						{{ product.variation_field_product_image }}
+					</div>
+				</div>
+			{% endif %}
+
+			{# Brand Logo #}
+			{% if product.variation_field_brand_logo or product.variation_field_brands %}
+				<div class="product-brand">
+					{% if product.variation_field_brand_logo %}
+						{{ product.variation_field_brand_logo }}
+					{% endif %}
+					{% if product.variation_field_brands %}
+						{{ product.variation_field_brands }}
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+
+		{# Product Information Section #}
+		<div
+			class="product-info">
+
+			{# Product Title #}
+			{% if product.variation_title %}
+				<h1 class="product-title">
+					{{ product.variation_title }}
+				</h1>
+			{% endif %}
+
+			{# SKU #}
+			{% if product.variation_sku %}
+				<div class="product-sku">
+					<span class="sku-label">Model No:</span>
+					<span class="sku-value">{{ product.variation_sku }}</span>
+				</div>
+			{% endif %}
+
+			{# Price #}
+			{% if product.variation_price %}
+				<div class="product-price">
+					{{ product.variation_price }}
+				</div>
+			{% endif %}
+
+			{# Product Variations / Add to Cart - Moved here under price #}
+			{% if product.variations %}
+				<div class="product-purchase">
+					{{ product.variations }}
+				</div>
+			{% endif %}
+
+            {# Specifications Table #}
+			<div class="product-specifications">
+				<h2 class="specifications-title">Specifications</h2>
+				<table class="specifications-table">
+					<tbody>
+						{% if product.variation_field_disc_diameter|render|striptags|trim %}
+							<tr>
+								<th>Disc Diameter</th>
+								<td>{{ product.variation_field_disc_diameter }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_voltage|render|striptags|trim %}
+							<tr>
+								<th>Voltage</th>
+								<td>{{ product.variation_field_voltage }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_frequency|render|striptags|trim %}
+							<tr>
+								<th>Frequency</th>
+								<td>{{ product.variation_field_frequency }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_input_power|render|striptags|trim %}
+							<tr>
+								<th>Input Power</th>
+								<td>{{ product.variation_field_input_power }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_no_load_speed|render|striptags|trim %}
+                          
+							<tr>
+								<th>No Load Speed</th>
+								<td>{{ product.variation_field_no_load_speed }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_spindle_thread|render|striptags|trim %}
+							<tr>
+								<th>Spindle Thread</th>
+								<td>{{ product.variation_field_spindle_thread }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_spindle_lock|render|striptags|trim %}
+							<tr>
+								<th>Spindle Lock</th>
+								<td>{{ product.variation_field_spindle_lock }}</td>
+							</tr>
+						{% endif %}
+
+						{% if product.variation_field_power_source_type|render|striptags|trim %}
+							<tr>
+								<th>Power Source Type</th>
+								<td>{{ product.variation_field_power_source_type }}</td>
+							</tr>
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+
+			{# Description #}
+			{% if product.variation_field_description %}
+                <h2 class="description-title">Product Description</h2>
+				<div class="product-description">
+					{{ product.variation_field_description }}
+				</div>
+			{% endif %}
+
+			
+
+		</div>
+
+	</div>
+</article>
