@@ -1,0 +1,20 @@
+{% if content.field_image['#items'] %}
+  <section class="home-banner-section">
+    <div class="swiper home-banner-swiper">
+      <div class="swiper-wrapper">
+        {% for image in content.field_image['#items'] %}
+          <div class="swiper-slide">
+            <img
+              src="{{ file_url(image.entity.uri.value) }}"
+              alt="{{ image.alt }}"
+            />
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+{% endif %}
