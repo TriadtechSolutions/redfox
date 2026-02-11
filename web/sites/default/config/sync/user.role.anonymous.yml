@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - search_api_autocomplete.search.product_search
   module:
     - comment
     - commerce_checkout
@@ -12,12 +13,13 @@ dependencies:
     - filter
     - media
     - search
+    - search_api_autocomplete
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
 label: 'Anonymous user'
-weight: 0
+weight: -10
 is_admin: false
 permissions:
   - 'access checkout'
@@ -25,6 +27,7 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
+  - 'use search_api_autocomplete for product_search'
   - 'use text format restricted_html'
   - 'view commerce_product'
   - 'view media'

@@ -43,6 +43,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  display_page_title:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_image:
     type: image_image
     weight: 1
@@ -105,5 +112,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

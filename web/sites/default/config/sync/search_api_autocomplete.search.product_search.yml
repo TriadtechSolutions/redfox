@@ -1,0 +1,39 @@
+uuid: 80877533-05de-43a9-a020-2a72658a704b
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.product_index
+    - views.view.product_search
+  module:
+    - views
+id: product_search
+label: 'Product Search '
+index_id: product_index
+suggester_settings:
+  live_results:
+    fields:
+      - sku
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: true
+    view_modes:
+      'entity:commerce_product_variation':
+        default: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:product_search':
+    displays:
+      default: false
+      selected:
+        - page_1
+options:
+  limit: 5
+  min_length: 2
+  show_count: false
+  delay: 200
+  submit_button_selector: ':submit'
+  autosubmit: true

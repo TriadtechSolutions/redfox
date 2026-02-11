@@ -1,0 +1,116 @@
+uuid: 492d8a43-6b7c-493d-a96d-f3dece4498f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.elasticsearch_server
+  module:
+    - commerce_product
+    - search_api_elasticsearch_client
+id: product_index
+name: 'Product Index'
+description: ''
+read_only: false
+field_settings:
+  sku:
+    label: SKU
+    datasource_id: 'entity:commerce_product_variation'
+    property_path: sku
+    type: text
+    dependencies:
+      module:
+        - commerce_product
+datasource_settings:
+  'entity:commerce_product_variation':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: true
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: true
+    fields:
+      - sku
+    title: true
+    alt: true
+    tags:
+      b: 2.0
+      em: 1.5
+      h1: 5.0
+      h2: 3.0
+      h3: 2.0
+      strong: 2.0
+      u: 1.5
+  ignore_character:
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: false
+    fields:
+      - sku
+    ignorable: "['¿¡!?,.:;]"
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  search_api_elasticsearch_client_date_range:
+    weights:
+      preprocess_index: 0
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+    fields: {  }
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '3'
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - sku
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: elasticsearch_server

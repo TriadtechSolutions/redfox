@@ -1,6 +1,6 @@
 uuid: 2eb82bb2-d423-491f-bb25-32cf126a015e
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - redfox

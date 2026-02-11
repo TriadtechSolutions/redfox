@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
-    - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.field_disc_diameter
     - field.field.commerce_product_variation.default.field_frequency
     - field.field.commerce_product_variation.default.field_input_power
@@ -165,14 +164,6 @@ mappings:
     settings: {  }
     unique:
       value: 1
-  -
-    target: attribute_color
-    map:
-      target_id: colour
-    settings:
-      reference_by: name
-      autocreate: 1
-      autocreate_bundle: color
   -
     target: product_id
     map:

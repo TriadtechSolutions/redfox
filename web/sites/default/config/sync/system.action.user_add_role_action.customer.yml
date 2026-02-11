@@ -1,0 +1,14 @@
+uuid: d6472c6f-c591-4b0a-b99f-7764d16b2a6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.customer
+  module:
+    - user
+id: user_add_role_action.customer
+label: 'Add the Customer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: customer

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
-    - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.feeds_item
     - field.field.commerce_product_variation.default.field_brand_logo
     - field.field.commerce_product_variation.default.field_brands
@@ -28,7 +27,7 @@ mode: default
 content:
   field_brand_logo:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
@@ -39,22 +38,22 @@ content:
     region: content
   field_brands:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 15
     region: content
   field_description:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 11
     region: content
   field_disc_diameter:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -62,7 +61,7 @@ content:
     region: content
   field_frequency:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -70,7 +69,7 @@ content:
     region: content
   field_input_power:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -78,7 +77,7 @@ content:
     region: content
   field_no_load_speed:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -86,7 +85,7 @@ content:
     region: content
   field_power_source_type:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -94,7 +93,7 @@ content:
     region: content
   field_product_image:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -103,7 +102,7 @@ content:
     region: content
   field_spindle_lock:
     type: boolean
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
@@ -113,7 +112,7 @@ content:
     region: content
   field_spindle_thread:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -121,7 +120,7 @@ content:
     region: content
   field_voltage:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -147,7 +146,7 @@ content:
     region: content
   sku:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -155,13 +154,13 @@ content:
     region: content
   title:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     weight: 13
     region: content
 hidden:
-  attribute_color: true
   feeds_item: true
   product_id: true
+  search_api_excerpt: true

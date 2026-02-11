@@ -5,7 +5,6 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.summary
-    - field.field.commerce_product_variation.default.attribute_color
     - field.field.commerce_product_variation.default.feeds_item
     - field.field.commerce_product_variation.default.field_brand_logo
     - field.field.commerce_product_variation.default.field_brands
@@ -57,7 +56,6 @@ content:
     weight: -5
     region: content
 hidden:
-  attribute_color: true
   feeds_item: true
   field_brand_logo: true
   field_brands: true
@@ -72,4 +70,5 @@ hidden:
   field_spindle_thread: true
   field_voltage: true
   price: true
+  search_api_excerpt: true
   sku: true

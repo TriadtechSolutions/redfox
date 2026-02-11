@@ -1,0 +1,24 @@
+uuid: 7ae63bd0-b4bf-4a99-b261-a0eb1dde7230
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.product_search
+  module:
+    - views
+  theme:
+    - redfox
+id: redfox_views_block__product_search_block_1
+theme: redfox
+region: header
+weight: -3
+provider: null
+plugin: 'views_block:product_search-block_1'
+settings:
+  id: 'views_block:product_search-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }
