@@ -22,13 +22,16 @@ body {
 }
 
 #navbar-top {
-  background-color: rgb(172, 4, 1)
-;
+  background-color: rgb(172, 4, 1);
+  display: none;
 }
 
 #navbar-main {
   background-color: rgb(172, 4, 1);
   padding: 0 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 a,
@@ -117,6 +120,21 @@ a:active,
 
 
 #navbar-main img {
-  width: 120px;
+  width: 75px;
 }
 
+.navbar-brand {
+  padding: 10px 0;
+  position: absolute;
+  left: 70px;
+}
+
+@media (max-width: 1024px) {
+  .navbar-brand {
+    left: 50px;
+  }
+}
+
+.navbar-nav .nav-item {
+  margin: 0 5px;
+}

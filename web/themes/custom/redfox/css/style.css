@@ -308,3 +308,105 @@
         font-size: 1rem;
     }
 }
+
+/* Header */
+
+/* Make navbar a flex container */
+@media (min-width: 768px) {
+    #CollapsingNavbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Search on top */
+#block-redfox-views-block-product-search-block-1 {
+  order: 1;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: -webkit-center;
+}
+
+/* Menu below search */
+#block-redfox-mainnavigation {
+  order: 2;
+}
+
+/* Right side items */
+
+#block-redfox-useraccountmenu {
+  position: absolute;
+  right: 60px;
+  top: 20px;
+}
+
+
+#block-redfox-cart {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+}
+
+@media (max-width:1024px) {
+  #block-redfox-useraccountmenu {
+    right: 35px;
+  } 
+  #block-redfox-cart {
+    right: 70px;
+  }
+}
+
+#block-redfox-cart .cart-block--summary__icon img {
+    width: 25px;
+}
+
+/* Search wrapper */
+#views-exposed-form-product-search-block-1 .d-flex {
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  max-width: 600px;
+}
+
+
+/* Input field */
+#edit-search-api-fulltext {
+  border: none;
+  border-radius: 8px 0 0 8px;
+  height: 45px;
+  padding: 0 15px;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+/* Remove default margin */
+#views-exposed-form-product-search-block-1 .form-item-search-api-fulltext {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+/* Search button */
+#edit-submit-product-search {
+  background: #8f0000;
+  border: none;
+  height: 45px;
+  width: 60px;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Replace button text with icon */
+#edit-submit-product-search {
+  font-size: 0;
+}
+
+#edit-submit-product-search::before {
+  content: "🔍";
+  font-size: 18px;
+}
