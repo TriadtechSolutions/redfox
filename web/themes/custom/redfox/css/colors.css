@@ -34,6 +34,21 @@ body {
   flex-direction: column;
 }
 
+@media (max-width: 991px) {
+  #navbar-main {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allows dropdowns to take full width */
+      align-items: center;
+      /* justify-content: flex-start; */
+      /* We will use margins to push items */
+      padding: 0.5rem 1rem;
+      position: relative;
+      flex-direction: row;
+      
+  }
+}
+
 a,
 .link {
   color: rgb(172, 4, 1);

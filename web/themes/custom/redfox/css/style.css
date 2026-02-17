@@ -311,8 +311,8 @@
 
 /* Header */
 
-/* Make navbar a flex container */
-@media (min-width: 768px) {
+/* Make navbar a flex container - Enabled for all sizes to support custom mobile/tablet layout */
+@media (min-width: 1px) {
     #CollapsingNavbar {
         display: flex;
         flex-direction: column;
@@ -323,39 +323,40 @@
 
 /* Search on top */
 #block-redfox-views-block-product-search-block-1 {
-  order: 1;
-  margin-bottom: 8px;
-  width: 100%;
-  text-align: -webkit-center;
+    order: 1;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: -webkit-center;
 }
 
 /* Menu below search */
 #block-redfox-mainnavigation {
-  order: 2;
+    order: 2;
 }
 
 /* Right side items */
 
 #block-redfox-useraccountmenu {
-  position: absolute;
-  right: 60px;
-  top: 20px;
+    position: absolute;
+    right: 60px;
+    top: 20px;
 }
 
 
 #block-redfox-cart {
-  position: absolute;
-  right: 100px;
-  top: 20px;
+    position: absolute;
+    right: 100px;
+    top: 20px;
 }
 
 @media (max-width:1024px) {
-  #block-redfox-useraccountmenu {
-    right: 35px;
-  } 
-  #block-redfox-cart {
-    right: 70px;
-  }
+    #block-redfox-useraccountmenu {
+        right: 35px;
+    }
+
+    #block-redfox-cart {
+        right: 70px;
+    }
 }
 
 #block-redfox-cart .cart-block--summary__icon img {
@@ -364,49 +365,232 @@
 
 /* Search wrapper */
 #views-exposed-form-product-search-block-1 .d-flex {
-  padding: 10px;
-  border-radius: 10px;
-  align-items: center;
-  max-width: 600px;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    max-width: 600px;
 }
 
 
 /* Input field */
 #edit-search-api-fulltext {
-  border: none;
-  border-radius: 8px 0 0 8px;
-  height: 45px;
-  padding: 0 15px;
-  font-size: 15px;
-  box-shadow: none;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    height: 45px;
+    padding: 0 15px;
+    font-size: 15px;
+    box-shadow: none;
 }
 
 /* Remove default margin */
 #views-exposed-form-product-search-block-1 .form-item-search-api-fulltext {
-  margin-bottom: 0;
-  flex: 1;
+    margin-bottom: 0;
+    flex: 1;
 }
 
 /* Search button */
 #edit-submit-product-search {
-  background: #8f0000;
-  border: none;
-  height: 45px;
-  width: 60px;
-  border-radius: 0 8px 8px 0;
-  color: white;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: #8f0000;
+    border: none;
+    height: 45px;
+    width: 60px;
+    border-radius: 0 8px 8px 0;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Replace button text with icon */
 #edit-submit-product-search {
-  font-size: 0;
+    font-size: 0;
 }
 
 #edit-submit-product-search::before {
-  content: "🔍";
-  font-size: 18px;
+    content: "🔍";
+    font-size: 18px;
+}
+
+#block-redfox-useraccountmenu .nav-item .nav-link--user {
+    display: none;
+}
+
+/* ========================================
+   Tablet & Mobile Header Layout (< 992px)
+   ======================================== */
+@media (max-width: 991px) {
+
+    /* Hide default bootstrap toggler as we use custom ones */
+    button.navbar-toggler:not(.tablet-menu-toggle) {
+        display: none !important;
+    }
+
+    /* 1. Menu Icon (Left) */
+    .tablet-menu-toggle {
+        order: 1 !important;
+        margin-right: 15px;
+        position: absolute;
+        left: 0;
+    }
+
+    /* 2. Logo (Next to Menu) */
+    #navbar-main .navbar-brand {
+        order: 2 !important;
+        margin-right: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        /* Removed margin-right: auto */
+    }
+
+    #navbar-main .navbar-brand img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    /* 3. Search Icon (Right Group) */
+    /* Push this and following items to the right */
+    .tablet-search-toggle {
+        order: 3 !important;
+        margin-right: 15px;
+        margin-left: auto;
+    }
+
+    /* 4. Cart Icon (Right Group) */
+    #block-redfox-cart {
+        order: 4 !important;
+        position: static !important;
+        /* Reset layout from desktop absolute */
+        margin-right: 35px;
+        top: auto;
+        right: 3px;
+    }
+
+    /* Ensure icon size matches others if needed */
+    #block-redfox-cart .cart-block--summary__icon img {
+        width: 24px;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    /* Hide the "0 items" text if desired? User: [Cart Icon]. Usually implies icon only. */
+    #block-redfox-cart .cart-block--summary__count {
+        display: none;
+    }
+
+    /* 5. Login Icon (Rightmost) */
+    #block-redfox-useraccountmenu {
+        order: 5 !important;
+        position: absolute !important;
+        top: auto;
+        right: 3px;
+    }
+
+    /* Login Icon Customization - Icon Only */
+    #block-redfox-useraccountmenu ul.flex-row {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #block-redfox-useraccountmenu .nav-link {
+        font-size: 0 !important;
+        /* Hide "Log in" text */
+        padding: 5px;
+        line-height: 1;
+        display: block;
+    }
+
+    #block-redfox-useraccountmenu .nav-link:before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        /* Using a simple user icon SVG - White */
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3e%3ccircle cx='12' cy='7' r='4'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    /* Hiding Desktop Elements */
+
+    /* Hide the Full Search Bar */
+    #block-redfox-views-block-product-search-block-1 {
+        display: none;
+        width: 100%;
+        order: 10;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        z-index: 2000;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border-top: 1px solid #e9ecef;
+    }
+
+    /* Show it when toggled */
+    #block-redfox-views-block-product-search-block-1.search-overlay-visible {
+        display: block !important;
+        background-color: bisque;
+    }
+
+    /* Ensure input container is full width in the dropdown */
+    #block-redfox-views-block-product-search-block-1 .d-flex {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        border: none;
+    }
+
+    #block-redfox-views-block-product-search-block-1 form {
+        width: 100%;
+    }
+
+    /* Hide the Main Navigation */
+    #block-redfox-mainnavigation {
+        display: none;
+        width: 100%;
+        order: 11;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        z-index: 999;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show it when toggled */
+    #block-redfox-mainnavigation.show-tablet-menu {
+        display: block !important;
+    }
+
+    /* Style the Mobile Menu Items */
+    #block-redfox-mainnavigation .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #block-redfox-mainnavigation .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    #block-redfox-mainnavigation .nav-link {
+        padding: 15px 20px;
+        color: #333;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    #block-redfox-mainnavigation .nav-link:hover {
+        background-color: #f8f9fa;
+    }
+
+    #header {
+        position: relative;
+    }
 }

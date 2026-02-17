@@ -98,6 +98,74 @@
             <div class="container">
             {% endif %}
               {{ page.header }}
+              
+              {# Tablet & Mobile-specific controls (< 992px) #}
+              <button class="navbar-toggler tablet-menu-toggle d-block d-lg-none border-0 p-2 me-2" type="button" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e&quot;);"></span>
+              </button>
+              
+              <button class="tablet-search-toggle d-block d-lg-none btn btn-link p-2 text-white" type="button" aria-label="Search">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  // Tablet/Mobile Menu Toggle
+                  const menuToggle = document.querySelector('.tablet-menu-toggle');
+                  const navBlock = document.getElementById('block-redfox-mainnavigation');
+                  
+                  if (menuToggle && navBlock) {
+                    menuToggle.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      navBlock.classList.toggle('d-none');
+                      navBlock.classList.toggle('show-tablet-menu');
+                    });
+                  }
+
+                  // Tablet/Mobile Search Toggle
+                  const searchToggle = document.querySelector('.tablet-search-toggle');
+                  
+                  if (searchToggle) {
+                    searchToggle.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      
+                      // Move selection inside the click handler to ensure we get the live element
+                      // and avoid issues if the element wasn't ready at DOMContentLoaded
+                      const searchBlock = document.getElementById('block-redfox-views-block-product-search-block-1') || 
+                                          document.querySelector('[id*="product-search-block"]') ||
+                                          document.querySelector('.block-views-blockproduct-search-block-1');
+                      
+                      if (!searchBlock) {
+                        console.error('Search block not found. IDs searched: block-redfox-views-block-product-search-block-1, [id*="product-search-block"]');
+                        return;
+                      }
+
+                      // Toggle class
+                      searchBlock.classList.toggle('search-overlay-visible');
+                      
+                      const isVisible = searchBlock.classList.contains('search-overlay-visible');
+                      
+                      // Toggle Aria
+                      searchToggle.setAttribute('aria-expanded', isVisible);
+
+                      // Explicitly toggle display style
+                      if (isVisible) {
+                        searchBlock.style.display = 'block';
+                        // Focus input
+                        setTimeout(() => {
+                           const input = searchBlock.querySelector('input[type="text"], input[type="search"]');
+                           if (input) input.focus();
+                        }, 50);
+                      } else {
+                        searchBlock.style.display = 'none';
+                      }
+                    });
+                  }
+                });
+              </script>
+
               {% if page.primary_menu or page.header_form %}
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="{{ navbar_collapse_btn_data }}" data-bs-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="{{ navbar_collapse_class }}" id="CollapsingNavbar">
