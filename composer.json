@@ -33,6 +33,7 @@
         "drupal/feeds_files_by_media": "^1.0",
         "drupal/feeds_tamper": "^2.0@RC",
         "drupal/feeds_tamper_media_url": "^1.0",
+        "drupal/file_delete": "^3.0",
         "drupal/filefield_sources": "2.0.x-dev@dev",
         "drupal/inline_entity_form": "^3.0@RC",
         "drupal/mail_login": "^4.2",
@@ -52,6 +53,7 @@
         "drupal/smtp": "^1.4",
         "drupal/social_auth_google": "^4.0",
         "drupal/tamper": "^1.0@beta",
+        "drupal/views_bulk_operations": "^4.4",
         "drupal/viewsreference": "^2.0@beta",
         "drupal/webform": "^6.3@beta",
         "drush/drush": "^13.6"
