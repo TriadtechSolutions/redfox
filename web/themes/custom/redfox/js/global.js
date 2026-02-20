@@ -116,3 +116,34 @@
   };
 
 })(Drupal, once);
+
+Drupal.behaviors.homeBannerSwiper = {
+  attach: function (context) {
+
+    once('home-banner-swiper', '.home-banner-swiper', context).forEach(function (swiperEl) {
+      new Swiper(swiperEl, {
+        loop: true,
+
+        autoplay: {
+          delay: 1500000,
+          disableOnInteraction: false,
+        },
+
+        pagination: {
+          el: swiperEl.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+
+        navigation: {
+          nextEl: swiperEl.querySelector('.swiper-button-next'),
+          prevEl: swiperEl.querySelector('.swiper-button-prev'),
+        },
+
+        speed: 1500,
+        grabCursor: true,
+      });
+    });
+
+  }
+};
+(jQuery, Drupal, once);

@@ -38,3 +38,14 @@ commerce-styling:
   css:
     theme:
       css/commerce.css: {}
+      
+swiper:
+  version: 11.x
+  css:
+    theme:
+      libraries/swiper/swiper-bundle.min.css: {}
+  js:
+    libraries/swiper/swiper-bundle.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

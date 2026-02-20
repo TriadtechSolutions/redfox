@@ -1,10 +1,37 @@
+<div class="login-form-wrapper">
+  <div class="login-form-card">
+    <h2>Sign In</h2>
 
-<form{{ attributes }}>
-{{element.name}}
-{{element.pass}}
-{{element.persistent_login}}
-{{element.form_id}}
-{{element.form_build_id}}
-{{element.form_token}}
-{{element.actions}} 
-</form>
+    <form{{ attributes }}>
+
+      {{ element.name }}
+      {{ element.pass }}
+      {{ element.persistent_login }}
+      {{ element.actions }}
+
+      <div class="forgot-password">
+        <a href="/user/password">Forgot Password</a>
+      </div>
+
+      <div class="divider">Or</div>
+
+      {# <div class="social-login">
+        <div class="social-login-btn">
+          <img src="{{ base_path ~ directory }}/images/google.png" alt="Google" width="22">
+        </div>
+        <div class="social-login-btn">
+          <img src="{{ directory }}/images/facebook.jpg" alt="Facebook" width="22">
+        </div>
+      </div> #}
+
+      <div class="signup-link">
+        Don't have an account? <a href="/user/register">Sign up</a>
+      </div>
+
+      {{ element.form_id }}
+      {{ element.form_build_id }}
+      {{ element.form_token }}
+
+    </form>
+  </div>
+</div>

@@ -1,9 +1,30 @@
 
-<form{{ attributes }}>
+{# <form{{ attributes }}>
 {{ element.name }}
 {{ element.mail }}
 {{ element.form_id }}
 {{ element.form_build_id }}
 {{ element.actions }}
 {{ element.form_token }}
-</form>
+</form> #}
+
+<div class="password-reset-outer">
+  <div class="password-reset-card">
+    <h1 class="password-reset-heading">Reset Your Password</h1>
+    {# <p class="password-reset-subtext">
+      Password reset instructions will be sent to your registered email address.
+    </p> #}
+    <form{{ attributes }}>
+      {{ element.form_id }}
+      {{ element.form_build_id }}
+      {{ element.form_token }}
+      <div class="password-reset-fields">
+        {{ element.name }}
+        {{ element.mail }}
+      </div>
+      <div class="password-reset-actions">
+        {{ element.actions }}
+      </div>
+    </form>
+  </div>
+</div>

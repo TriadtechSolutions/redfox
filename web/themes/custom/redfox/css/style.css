@@ -5,6 +5,12 @@
 
 /* Header */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: inter;
+}
+
 /* Make navbar a flex container - Enabled for all sizes to support custom mobile/tablet layout */
 @media (min-width: 1px) {
     #CollapsingNavbar {
@@ -12,6 +18,1195 @@
         flex-direction: column;
         align-items: center;
     }
+}
+
+#main-wrapper {
+    /* margin-top: -10px; */
+}
+
+/* =================================================
+   User Login Page
+   ================================================= */
+
+.page-user-login #main-wrapper {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/loginpage.png') center / cover no-repeat;
+  padding: 20px;
+}
+
+/* overlay */
+.page-user-login #main-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.page-user-login #main,
+.page-user-login .container {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  width: 100%;
+}
+
+.form-check-label {
+  color: white;
+}
+
+
+
+/* =================================================
+   LOGIN CARD
+   ================================================= */
+
+.page-user-login .login-form-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* .page-user-login .login-form-card {
+  padding: 35px;
+} */
+
+.page-user-login .login-form-card h2 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+
+
+/* =================================================
+   INPUTS
+   ================================================= */
+
+.page-user-login .form-item {
+  margin-bottom: 18px;
+}
+
+.page-user-login input[type="text"],
+.page-user-login input[type="password"],
+.page-user-login input[type="email"] {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+.page-user-login input:focus {
+  outline: 2px solid #c40000;
+}
+
+
+
+/* =================================================
+   REMEMBER
+   ================================================= */
+
+.page-user-login .form-type-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.page-user-login .form-type-checkbox label {
+  color: #fff;
+  margin-left: 8px;
+}
+
+
+
+/* =================================================
+   BUTTON
+   ================================================= */
+
+.page-user-login .form-actions {
+  margin-bottom: 15px;
+}
+
+.page-user-login button[type="submit"],
+.page-user-login input[type="submit"] {
+  width: 100%;
+  height: 48px;
+  border-radius: 25px;
+  background: #c40000;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-user-login button[type="submit"]:hover,
+.page-user-login input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(196,0,0,0.4);
+}
+
+
+
+/* =================================================
+   LINKS
+   ================================================= */
+
+.page-user-login .forgot-password,
+.page-user-login .signup-link {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.page-user-login a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+
+/* =================================================
+   DIVIDER
+   ================================================= */
+
+.page-user-login .divider {
+  text-align: center;
+  color: #fff;
+  margin: 18px 0;
+  position: relative;
+}
+
+.page-user-login .divider::before,
+.page-user-login .divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  /* background: rgba(255,255,255,0.3); */
+}
+
+.page-user-login .divider::before { left: 0; }
+.page-user-login .divider::after { right: 0; }
+
+
+
+/* =================================================
+   SOCIAL
+   ================================================= */
+
+.page-user-login .social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.page-user-login .social-login-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-user-login .social-login-btn:hover {
+  transform: scale(1.08);
+}
+
+
+
+/* =================================================
+   RESPONSIVE
+   ================================================= */
+
+/* Tablets (portrait and landscape) */
+@media (max-width: 1024px) {
+  /* .page-user-login #main-wrapper {
+    min-height: 100vh;
+    background-position: center center;
+  } */
+
+  /* .page-user-login .login-form-wrapper {
+    max-width: 450px;
+  } */
+
+  /* .page-user-login .login-form-card {
+    padding: 30px;
+  } */
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .page-user-login #main-wrapper {
+    /* min-height: 100vh;
+    background-position: center center;
+    padding: 15px; */
+  }
+
+  /* .page-user-login .login-form-wrapper {
+    max-width: 100%;
+  } */
+
+  /* .page-user-login .login-form-card {
+    padding: 25px;
+  } */
+
+  .page-user-login .login-form-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+  .page-user-login #main-wrapper {
+    /* min-height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    padding: 15px; */
+  }
+
+  /* .page-user-login .login-form-card {
+    padding: 20px;
+  } */
+
+  .page-user-login .login-form-card h2 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .page-user-login input[type="text"],
+  .page-user-login input[type="password"],
+  .page-user-login input[type="email"],
+  .page-user-login button[type="submit"],
+  .page-user-login input[type="submit"] {
+    height: 45px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  .page-user-login #main-wrapper {
+    padding: 10px;
+  }
+
+  .page-user-login .login-form-card {
+    padding: 18px;
+  }
+}
+
+/* Landscape orientation fix for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .page-user-login #main-wrapper {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+}
+
+
+
+/* hide required star */
+.page-user-login .form-required {
+  color: white;
+}
+
+
+/*====  User Registration page  ====*/
+.page-user-register #main-wrapper {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/loginpage.png') center / cover no-repeat;
+  padding: 70px;
+}
+
+/*==== User Register Page ====*/
+/* .page-user-register #main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/loginpage.png') center / cover no-repeat;
+  padding: 40px 20px;
+} */
+
+/* overlay */
+.page-user-register #main-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.page-user-register #main,
+.page-user-register .container {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  width: 100%;
+}
+
+.form-check-label {
+  color: white;
+}
+
+
+
+/* =================================================
+   REGISTER CARD
+   ================================================= */
+
+.page-user-register .login-form-wrapper {
+  /* width: 100%; */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* .page-user-register .login-form-card {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+} */
+
+.page-user-register .login-form-card h2 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+
+/* =================================================
+   FORM ITEMS & INPUTS
+   ================================================= */
+
+.page-user-register .form-item {
+  margin-bottom: 20px;
+}
+
+.page-user-register .form-item label {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.page-user-register input[type="text"],
+.page-user-register input[type="password"],
+.page-user-register input[type="email"],
+.page-user-register textarea {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 15px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.page-user-register textarea {
+  height: auto;
+  min-height: 80px;
+  padding: 12px 15px;
+  resize: vertical;
+}
+
+.page-user-register input:focus,
+.page-user-register textarea:focus {
+  outline: none;
+  border-color: #c40000;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(196, 0, 0, 0.1);
+}
+
+#edit-mail--description,
+#edit-name--description {
+  display: none;
+}
+
+.page-user-register .password-strength {
+  margin-top: 8px;
+}
+
+.page-user-register .password-strength__meter {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.page-user-register .password-strength__indicator {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.page-user-register .password-strength__title,
+.page-user-register .password-strength__text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+}
+
+
+
+/* =================================================
+   BUTTON
+   ================================================= */
+
+.page-user-register .form-actions {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.page-user-register button[type="submit"],
+.page-user-register input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #c40000;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page-user-register button[type="submit"]:hover,
+.page-user-register input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 0, 0, 0.5);
+  background: #e00000;
+}
+
+.page-user-register button[type="submit"]:active,
+.page-user-register input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+
+
+/* =================================================
+   LINKS
+   ================================================= */
+
+.page-user-register .signup-link {
+  text-align: center;
+  color: #fff;
+  /* font-size: 14px; */
+  margin-top: 20px;
+}
+
+.page-user-register a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.page-user-register a:hover {
+  color: #c40000;
+  text-decoration: none;
+}
+
+
+
+/* =================================================
+   REQUIRED MARKER
+   ================================================= */
+
+.page-user-register .form-required {
+  color: #ffffff;
+  margin-left: 3px;
+}
+
+.form-item-field-last-name-0-value, .fieldset-legend {
+    color: white;
+}
+
+
+/* =================================================
+   ERROR MESSAGES
+   ================================================= */
+
+.page-user-register .form-item--error-message {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.page-user-register input.error,
+.page-user-register textarea.error {
+  border-color: #ff6b6b;
+}
+
+
+
+/* =================================================
+   RESPONSIVE - TABLETS
+   ================================================= */
+
+@media (max-width: 1024px) {
+  .page-user-register #main-wrapper {
+    /* min-height: 100vh; */
+    padding: 60px;
+  }
+
+  .page-user-register .login-form-wrapper {
+    max-width: 550px;
+  }
+
+  /* .page-user-register .login-form-card {
+    padding: 35px;
+  } */
+}
+
+
+
+/* =================================================
+   RESPONSIVE - SMALL TABLETS & LARGE PHONES
+   ================================================= */
+
+@media (max-width: 768px) {
+  .page-user-register #main-wrapper {
+    padding: 60px;
+  }
+
+  /* .page-user-register .login-form-wrapper {
+    max-width: 100%;
+  } */
+
+  /* .page-user-register .login-form-card {
+    padding: 30px 25px;
+  } */
+
+  .page-user-register .login-form-card h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  .page-user-register input[type="text"],
+  .page-user-register input[type="password"],
+  .page-user-register input[type="email"] {
+    height: 46px;
+  }
+
+  .page-user-register button[type="submit"],
+  .page-user-register input[type="submit"] {
+    height: 48px;
+    font-size: 15px;
+  }
+}
+
+
+
+/* =================================================
+   RESPONSIVE - MOBILE DEVICES
+   ================================================= */
+
+@media (max-width: 576px) {
+  .page-user-register #main-wrapper {
+    padding: 40px;
+    min-height: 100vh;
+  }
+
+  /* .page-user-register .login-form-card {
+    padding: 25px 20px;
+  } */
+
+  .page-user-register .login-form-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .page-user-register .form-item {
+    margin-bottom: 18px;
+  }
+
+  .page-user-register .form-item label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .page-user-register input[type="text"],
+  .page-user-register input[type="password"],
+  .page-user-register input[type="email"],
+  .page-user-register textarea {
+    height: 45px;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .page-user-register textarea {
+    min-height: 70px;
+    padding: 10px 12px;
+  }
+
+  .page-user-register button[type="submit"],
+  .page-user-register input[type="submit"] {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  /* .page-user-register .description {
+    font-size: 12px;
+  } */
+
+  .page-user-register .signup-link {
+    font-size: 13px;
+  }
+}
+
+
+
+/* =================================================
+   RESPONSIVE - EXTRA SMALL DEVICES
+   ================================================= */
+
+@media (max-width: 375px) {
+  .page-user-register #main-wrapper {
+    /* padding: 15px 10px; */
+  }
+
+  /* .page-user-register .login-form-card {
+    padding: 20px 18px;
+  } */
+
+  .page-user-register .login-form-card h2 {
+    font-size: 22px;
+  }
+
+  .page-user-register input[type="text"],
+  .page-user-register input[type="password"],
+  .page-user-register input[type="email"],
+  .page-user-register textarea {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .page-user-register button[type="submit"],
+  .page-user-register input[type="submit"] {
+    height: 45px;
+  }
+}
+
+
+
+/* =================================================
+   LANDSCAPE ORIENTATION FIX
+   ================================================= */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .page-user-register #main-wrapper {
+    min-height: auto;
+    /* padding: 30px 15px; */
+  }
+
+  /* .page-user-register .login-form-card {
+    padding: 25px;
+  } */
+
+  .page-user-register .login-form-card h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .page-user-register .form-item {
+    margin-bottom: 15px;
+  }
+
+  .page-user-register input[type="text"],
+  .page-user-register input[type="password"],
+  .page-user-register input[type="email"],
+  .page-user-register textarea {
+    height: 42px;
+  }
+
+  .page-user-register textarea {
+    min-height: 60px;
+  }
+
+  .page-user-register button[type="submit"],
+  .page-user-register input[type="submit"] {
+    height: 44px;
+  }
+}
+
+
+
+/* =================================================
+   DESKTOP LARGE SCREENS
+   ================================================= */
+
+@media (min-width: 1400px) {
+  .page-user-register .login-form-wrapper {
+    max-width: 650px;
+  }
+
+  /* .page-user-register .login-form-card {
+    padding: 45px;
+  } */
+
+  .page-user-register .login-form-card h2 {
+    font-size: 30px;
+  }
+
+  .page-user-register input[type="text"],
+  .page-user-register input[type="password"],
+  .page-user-register input[type="email"],
+  .page-user-register textarea {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .page-user-register textarea {
+    min-height: 90px;
+  }
+
+  .page-user-register button[type="submit"],
+  .page-user-register input[type="submit"] {
+    height: 52px;
+    font-size: 17px;
+  }
+}
+
+/*==== Passowrd Reset page =====*/
+
+ /* .page-user-password #main-wrapper {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/loginpage.png') center / cover no-repeat;
+  padding: 70px;
+} */
+
+.password-reset-fields .js-form-required .form-required .p {
+  color: white;
+}
+
+/* ============================================================
+   PASSWORD RESET PAGE — MATCHING LOGIN PAGE DESIGN
+   ============================================================ */
+
+/* Background */
+.page-user-password #main-wrapper {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/loginpage.png') center / cover no-repeat;
+  padding: 70px 20px;
+  box-sizing: border-box;
+}
+
+/* Dark overlay — same as login page */
+.page-user-password #main-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Outer wrapper — sits above overlay */
+.page-user-password .password-reset-outer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Form wrap — no card, just like login page */
+.page-user-password .password-reset-form-wrap {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.page-user-password .password-reset-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+  margin: 0 0 20px 0;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+}
+
+/* Subtext */
+.page-user-password .password-reset-subtext {
+  font-size: 0.92rem;
+  color: #ffffff;
+  text-align: left;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Fields wrapper */
+.page-user-password .password-reset-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Form item reset */
+.page-user-password .password-reset-form-wrap .form-item {
+  margin: 0;
+}
+
+/* Labels */
+.page-user-password .password-reset-form-wrap label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 6px;
+  letter-spacing: 0.15px;
+}
+
+/* Required asterisk */
+.page-user-password .password-reset-form-wrap label .form-required {
+  color: #e63329;
+  margin-left: 2px;
+}
+
+/* Inputs — white background like login page */
+.page-user-password .password-reset-form-wrap input[type="text"],
+.page-user-password .password-reset-form-wrap input[type="email"] {
+  width: 100%;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 30px;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-size: 0.975rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.25s ease;
+  box-shadow: none;
+}
+
+.page-user-password .password-reset-form-wrap input[type="text"]::placeholder,
+.page-user-password .password-reset-form-wrap input[type="email"]::placeholder {
+  color: #aaaaaa;
+}
+
+.page-user-password .password-reset-form-wrap input[type="text"]:focus,
+.page-user-password .password-reset-form-wrap input[type="email"]:focus {
+  box-shadow: 0 0 0 3px rgba(230, 51, 41, 0.35);
+  outline: none;
+}
+
+/* Description / help text */
+.page-user-password .password-reset-form-wrap .description,
+.page-user-password .password-reset-form-wrap .form-item--description {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Actions */
+.page-user-password .password-reset-actions {
+  margin-top: 8px;
+}
+
+.page-user-password .password-reset-actions .form-actions {
+  margin: 0;
+}
+
+/* Submit button — red pill like login page */
+.page-user-password .password-reset-actions input[type="submit"],
+.page-user-password .password-reset-actions button[type="submit"] {
+  width: 100%;
+  padding: 14px 20px;
+  background: #e63329;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: background 0.25s ease,
+              transform 0.15s ease,
+              box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(230, 51, 41, 0.45);
+}
+
+.page-user-password .password-reset-actions input[type="submit"]:hover,
+.page-user-password .password-reset-actions button[type="submit"]:hover {
+  background: #cc2920;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(230, 51, 41, 0.55);
+}
+
+.page-user-password .password-reset-actions input[type="submit"]:active,
+.page-user-password .password-reset-actions button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(230, 51, 41, 0.35);
+}
+
+/* Back to login link */
+.page-user-password .password-reset-form-wrap .back-to-login {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.page-user-password .password-reset-form-wrap .back-to-login a,
+.page-user-password .password-reset-form-wrap a {
+  color: #ffffff;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.page-user-password .password-reset-form-wrap .back-to-login a:hover,
+.page-user-password .password-reset-form-wrap a:hover {
+  color: #e63329;
+}
+
+/* Status / error messages */
+.page-user-password .messages,
+.page-user-password .messages--status,
+.page-user-password .messages--error {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .page-user-password #main-wrapper {
+    padding: 60px 24px;
+  }
+
+  .page-user-password .password-reset-form-wrap {
+    max-width: 400px;
+  }
+
+  .page-user-password .password-reset-heading {
+    font-size: 1.6rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL TABLET (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-user-password #main-wrapper {
+    min-height: 100vh;
+    padding: 50px 32px;
+    background-attachment: scroll;
+  }
+
+  .page-user-password .password-reset-form-wrap {
+    max-width: 100%;
+  }
+
+  .page-user-password .password-reset-heading {
+    font-size: 1.5rem;
+  }
+
+  .page-user-password .password-reset-subtext {
+    font-size: 0.88rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .page-user-password #main-wrapper {
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .page-user-password .password-reset-heading {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+
+  .page-user-password .password-reset-subtext {
+    font-size: 0.84rem;
+    margin-bottom: 20px;
+  }
+
+  .page-user-password .password-reset-fields {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .page-user-password .password-reset-form-wrap input[type="text"],
+  .page-user-password .password-reset-form-wrap input[type="email"] {
+    padding: 12px 14px;
+    font-size: 0.93rem;
+  }
+
+  .page-user-password .password-reset-actions input[type="submit"],
+  .page-user-password .password-reset-actions button[type="submit"] {
+    padding: 13px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — VERY SMALL (max-width: 360px)
+   ============================================================ */
+@media (max-width: 360px) {
+  .page-user-password #main-wrapper {
+    padding: 32px 16px;
+  }
+
+  .page-user-password .password-reset-heading {
+    font-size: 1.2rem;
+  }
+
+  .page-user-password .password-reset-subtext {
+    font-size: 0.8rem;
+  }
+
+  .page-user-password .password-reset-form-wrap input[type="text"],
+  .page-user-password .password-reset-form-wrap input[type="email"] {
+    padding: 11px 12px;
+  }
+}
+
+
+/* ===== Home Banner ===== */
+
+.home-banner-section {
+    width: 100vw;
+    max-height: 70%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-banner-swiper {
+    /* width: 100%; */
+    height: 600px;
+}
+
+/* Structure sizing */
+.home-banner-swiper .swiper-wrapper,
+.home-banner-swiper .swiper-slide {
+    /* width: 100%; */
+    height: 600px;
+}
+
+/* Banner images */
+.home-banner-swiper img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    background: #000;
+    display: block;
+}
+
+.home-banner img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* Pagination container */
+.home-banner-swiper .swiper-pagination {
+    bottom: 20px !important;
+    text-align: center;
+}
+
+/* Default dots */
+.home-banner-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    margin: 0 6px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Active dot */
+.home-banner-swiper .swiper-pagination-bullet-active {
+    background: #ff0000;
+    /* tool-style yellow */
+    width: 28px;
+    border-radius: 10px;
+}
+
+/* Base arrow button style */
+.home-banner-swiper .swiper-button-prev,
+.home-banner-swiper .swiper-button-next {
+    width: 55px;
+    height: 55px;
+    background: transparent;
+    /* backdrop-filter: blur(6px); */
+    border-radius: 50%;
+    border: 3px solid rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* Arrow icon color */
+.home-banner-swiper .swiper-button-prev::after,
+.home-banner-swiper .swiper-button-next::after {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Hover effect */
+.home-banner-swiper .swiper-button-prev:hover,
+.home-banner-swiper .swiper-button-next:hover {
+    background: #ff0000;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    transform: scale(1.1);
+}
+
+/* Arrow icon on hover */
+.home-banner-swiper .swiper-button-prev:hover::after,
+.home-banner-swiper .swiper-button-next:hover::after {
+    color: #000;
 }
 
 
