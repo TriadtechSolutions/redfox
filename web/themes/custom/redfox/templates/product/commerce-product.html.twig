@@ -69,14 +69,38 @@
 				</div>
 			{% endif %}
 
-			{# Product Variations / Add to Cart - Moved here under price #}
 			{% if product.variations %}
 				<div class="product-purchase">
 					{{ product.variations }}
 				</div>
 			{% endif %}
 
-            {# Specifications Table #}
+			{# Trust Icons #}
+			<div class="trust-icons">
+				<div class="trust-item">
+					<div class="trust-icon">🚚</div>
+					<div class="trust-text">
+						<strong>Fast Delivery</strong>
+						<span>Dispatch within 24hrs</span>
+					</div>
+				</div>
+				<div class="trust-item">
+					<div class="trust-icon">🛡️</div>
+					<div class="trust-text">
+						<strong>Genuine Code</strong>
+						<span>100% Original Products</span>
+					</div>
+				</div>
+				<div class="trust-item">
+					<div class="trust-icon">💬</div>
+					<div class="trust-text">
+						<strong>Expert Support</strong>
+						<span>Speak to our technicians</span>
+					</div>
+				</div>
+			</div>
+
+			{# Specifications Table #}
 			<div class="product-specifications">
 				<h2 class="specifications-title">Specifications</h2>
 				<table class="specifications-table">
@@ -110,7 +134,7 @@
 						{% endif %}
 
 						{% if product.variation_field_no_load_speed|render|striptags|trim %}
-                          
+
 							<tr>
 								<th>No Load Speed</th>
 								<td>{{ product.variation_field_no_load_speed }}</td>
@@ -141,15 +165,43 @@
 				</table>
 			</div>
 
+			{# Checkout Badges #}
+			<div class="checkout-assurance">
+				<p class="assurance-title">Secure Checkout Guaranteed</p>
+				<div class="badge-row">
+					<div class="badge-item">🔒 SSL ENCRYPTED</div>
+					<div class="badge-item">💳 SECURE PAYMENTS</div>
+					<div class="badge-item">📦 SAFE SHIPPING</div>
+				</div>
+			</div>
+
 			{# Description #}
 			{% if product.variation_field_description %}
-                <h2 class="description-title">Product Description</h2>
+				<h2 class="description-title">Product Description</h2>
 				<div class="product-description">
 					{{ product.variation_field_description }}
 				</div>
 			{% endif %}
 
-			
+			{# Why Shop With Us #}
+			<div class="why-shop-us">
+				<h3 class="why-title">Why Shop with Redfox?</h3>
+				<div class="why-grid">
+					<div class="why-item">
+						<h4>Quality Assurance</h4>
+						<p>Every tool is rigorously tested to meet industrial standards.</p>
+					</div>
+					<div class="why-item">
+						<h4>Transparent Pricing</h4>
+						<p>No hidden costs. Get the best value for your industrial needs.</p>
+					</div>
+					<div class="why-item">
+						<h4>Nationwide Support</h4>
+						<p>Our service centers are available across the country.</p>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 

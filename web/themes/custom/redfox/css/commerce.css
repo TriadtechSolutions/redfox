@@ -309,3 +309,131 @@
         font-size: 1rem;
     }
 }
+
+/* Trust Icons Styles */
+.trust-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.trust-icon {
+    font-size: 1.5rem;
+    background: #fdf2f2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-text strong {
+    font-size: 0.85rem;
+    color: #1a1a1a;
+}
+
+.trust-text span {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* Checkout Assurance */
+.checkout-assurance {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+}
+
+.assurance-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1a73e8;
+    background: #e8f0fe;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+}
+
+/* Why Shop Us */
+.why-shop-us {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.why-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.why-item h4 {
+    font-size: 1rem;
+    color: #AC0401;
+    margin-bottom: 0.5rem;
+}
+
+.why-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .trust-icons {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

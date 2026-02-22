@@ -153,3 +153,12 @@ a:active,
 .navbar-nav .nav-item {
   margin: 0 5px;
 }
+
+
+#block-redfox-views-block-product-search-block-1 .content .contextual-region {
+  position: unset !important;
+}
+
+.contextual-region.block-views-blockproduct-search-block-1 {
+  position: unset !important;
+}

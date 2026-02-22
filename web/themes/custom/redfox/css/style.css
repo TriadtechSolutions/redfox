@@ -165,7 +165,7 @@
   margin: 10px 0;
 }
 
-.page-user-login a {
+.page-user-login .login-form-card a {
   color: #fff;
   text-decoration: underline;
 }
@@ -476,7 +476,7 @@
    BUTTON
    ================================================= */
 
-.page-user-register .form-actions {
+.page-user-register .user-register-form .form-actions {
   margin-top: 30px;
   margin-bottom: 20px;
 }
@@ -522,14 +522,14 @@
   margin-top: 20px;
 }
 
-.page-user-register a {
+.page-user-register .signup-link a {
   color: #fff;
   text-decoration: underline;
   font-weight: 600;
   transition: color 0.3s;
 }
 
-.page-user-register a:hover {
+.page-user-register .signup-link a:hover {
   color: #c40000;
   text-decoration: none;
 }
