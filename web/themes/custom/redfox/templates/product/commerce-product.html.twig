@@ -47,6 +47,14 @@
 		<div
 			class="product-info">
 
+			{# SKU #}
+			{% if product.variation_sku %}
+				<div class="product-sku">
+					<span class="sku-label">MODEL:</span>
+					<span class="sku-value">{{ product.variation_sku }}</span>
+				</div>
+			{% endif %}
+
 			{# Product Title #}
 			{% if product.variation_title %}
 				<h1 class="product-title">
@@ -54,18 +62,19 @@
 				</h1>
 			{% endif %}
 
-			{# SKU #}
-			{% if product.variation_sku %}
-				<div class="product-sku">
-					<span class="sku-label">Model No:</span>
-					<span class="sku-value">{{ product.variation_sku }}</span>
-				</div>
-			{% endif %}
-
-			{# Price #}
+			{# Price & Stock #}
 			{% if product.variation_price %}
-				<div class="product-price">
-					{{ product.variation_price }}
+				<div class="price-stock-wrapper">
+					<div class="product-price">
+						{{ product.variation_price }}
+						{% if product.variation_list_price %}
+							<span class="product-list-price">{{ product.variation_list_price }}</span>
+						{% endif %}
+					</div>
+					<div class="stock-status in-stock">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+						In Stock - Ships Tomorrow
+					</div>
 				</div>
 			{% endif %}
 
@@ -78,25 +87,22 @@
 			{# Trust Icons #}
 			<div class="trust-icons">
 				<div class="trust-item">
-					<div class="trust-icon">🚚</div>
-					<div class="trust-text">
-						<strong>Fast Delivery</strong>
-						<span>Dispatch within 24hrs</span>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
 					</div>
+					<div class="trust-label">3 Year Warranty</div>
 				</div>
 				<div class="trust-item">
-					<div class="trust-icon">🛡️</div>
-					<div class="trust-text">
-						<strong>Genuine Code</strong>
-						<span>100% Original Products</span>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-4-4h-3v10a1 1 0 0 0 1 1Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
 					</div>
+					<div class="trust-label">Free Shipping</div>
 				</div>
 				<div class="trust-item">
-					<div class="trust-icon">💬</div>
-					<div class="trust-text">
-						<strong>Expert Support</strong>
-						<span>Speak to our technicians</span>
+					<div class="trust-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
 					</div>
+					<div class="trust-label">30-Day Returns</div>
 				</div>
 			</div>
 
@@ -164,20 +170,8 @@
 					</tbody>
 				</table>
 			</div>
-
-			{# Checkout Badges #}
-			<div class="checkout-assurance">
-				<p class="assurance-title">Secure Checkout Guaranteed</p>
-				<div class="badge-row">
-					<div class="badge-item">🔒 SSL ENCRYPTED</div>
-					<div class="badge-item">💳 SECURE PAYMENTS</div>
-					<div class="badge-item">📦 SAFE SHIPPING</div>
-				</div>
-			</div>
-
-			{# Description #}
-			{% if product.variation_field_description %}
-				<h2 class="description-title">Product Description</h2>
+				{% if product.variation_field_description %}
+					<h2 class="description-title"> Product Description</h2>
 				<div class="product-description">
 					{{ product.variation_field_description }}
 				</div>
@@ -201,8 +195,6 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 
 	</div>

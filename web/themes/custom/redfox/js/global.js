@@ -115,6 +115,102 @@
     }
   };
 
+  Drupal.behaviors.quantitySelector = {
+    attach: function (context) {
+      once('quantity-selector', '#edit-quantity-wrapper .js-form-item', context).forEach(function (quantityWrapper) {
+        const input = quantityWrapper.querySelector('input[type="number"]');
+        if (input) {
+          // Create selector container
+          const selector = document.createElement('div');
+          selector.className = 'quantity-selector';
+
+          // Minus button
+          const minusBtn = document.createElement('button');
+          minusBtn.type = 'button';
+          minusBtn.className = 'quantity-btn minus';
+          minusBtn.innerHTML = '&minus;';
+          minusBtn.onclick = (e) => {
+            e.preventDefault();
+            const val = parseInt(input.value) || 1;
+            if (val > 1) {
+              input.value = val - 1;
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          };
+
+          // Plus button
+          const plusBtn = document.createElement('button');
+          plusBtn.type = 'button';
+          plusBtn.className = 'quantity-btn plus';
+          plusBtn.innerHTML = '&plus;';
+          plusBtn.onclick = (e) => {
+            e.preventDefault();
+            const val = parseInt(input.value) || 1;
+            input.value = val + 1;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+          };
+
+          // Wrap input
+          input.parentNode.insertBefore(selector, input);
+          selector.appendChild(minusBtn);
+          selector.appendChild(input);
+          selector.appendChild(plusBtn);
+
+          // Add stock message
+          const stockMsg = document.createElement('div');
+          stockMsg.className = 'stock-message';
+          stockMsg.innerText = 'Only 5 units left at this price';
+          quantityWrapper.parentNode.appendChild(stockMsg);
+        }
+      });
+    }
+  };
+  Drupal.behaviors.dynamicStrikePrice = {
+    attach: function (context) {
+      once('dynamic-strike-price', '.product-price', context).forEach(function (priceEl) {
+        // Find the actual price text value
+        const priceValNode = priceEl.querySelector('.field__item') || priceEl;
+        let priceText = priceValNode.textContent.trim();
+
+        const match = priceText.match(/[\d,.]+/);
+        if (match) {
+          const numericPart = match[0].replace(/,/g, '');
+          const value = parseFloat(numericPart);
+          const strikeValue = value + 50;
+
+          // Extract currency symbol (handling both prefix and suffix)
+          const symbol = priceText.replace(match[0], '').trim();
+          const isPrefix = priceText.startsWith(symbol);
+
+          let strikeEl = priceEl.querySelector('.product-list-price');
+          if (!strikeEl) {
+            strikeEl = document.createElement('span');
+            strikeEl.className = 'product-list-price';
+            priceEl.appendChild(strikeEl);
+          }
+
+          const formattedStrike = strikeValue.toLocaleString('en-IN', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+
+          strikeEl.innerText = isPrefix ? symbol + formattedStrike : formattedStrike + ' ' + symbol;
+        }
+      });
+    }
+  };
+  Drupal.behaviors.cartBadgeFix = {
+    attach: function (context) {
+      once('cart-badge-fix', '.cart-block--summary__count', context).forEach(function (countEl) {
+        const text = countEl.textContent.trim();
+        const match = text.match(/\d+/);
+        if (match) {
+          countEl.textContent = match[0];
+          countEl.style.fontSize = '11px';
+        }
+      });
+    }
+  };
 })(Drupal, once);
 
 Drupal.behaviors.homeBannerSwiper = {
