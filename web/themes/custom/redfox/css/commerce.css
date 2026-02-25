@@ -253,6 +253,25 @@
     font-size: 0.95rem;
 }
 
+.specifications-table td .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.specifications-table td .field__label {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.specifications-table td .field__item {
+    font-weight: 500;
+    color: #0f172a;
+}
+
 /* Product Purchase Section */
 .product-purchase {
     margin-top: 0;

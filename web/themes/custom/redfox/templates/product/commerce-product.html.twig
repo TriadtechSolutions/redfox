@@ -111,67 +111,43 @@
 				<h2 class="specifications-title">Specifications</h2>
 				<table class="specifications-table">
 					<tbody>
-						{% if product.variation_field_disc_diameter|render|striptags|trim %}
-							<tr>
-								<th>Disc Diameter</th>
-								<td>{{ product.variation_field_disc_diameter }}</td>
-							</tr>
-						{% endif %}
+						{% set excluded_fields = [
+							'variation_field_product_image',
+							'variation_field_product_images',
+							'variation_field_brand_logo',
+							'variation_field_brands',
+							'variation_field_category',
+							'variation_field_tool_type',
+							'variation_field_description'
+						] %}
 
-						{% if product.variation_field_voltage|render|striptags|trim %}
-							<tr>
-								<th>Voltage</th>
-								<td>{{ product.variation_field_voltage }}</td>
-							</tr>
-						{% endif %}
+						{% for key, field in product %}
+							{% if key starts with 'variation_field_' and key not in excluded_fields %}
+								{% set is_boolean = field['#field_type'] == 'boolean' %}
+								{% set show_field = false %}
 
-						{% if product.variation_field_frequency|render|striptags|trim %}
-							<tr>
-								<th>Frequency</th>
-								<td>{{ product.variation_field_frequency }}</td>
-							</tr>
-						{% endif %}
+								{% if is_boolean %}
+									{% if field['#items'].0.value == 1 %}
+										{% set show_field = true %}
+									{% endif %}
+								{% elseif field|render|striptags|trim %}
+									{% set show_field = true %}
+								{% endif %}
 
-						{% if product.variation_field_input_power|render|striptags|trim %}
-							<tr>
-								<th>Input Power</th>
-								<td>{{ product.variation_field_input_power }}</td>
-							</tr>
-						{% endif %}
-
-						{% if product.variation_field_no_load_speed|render|striptags|trim %}
-
-							<tr>
-								<th>No Load Speed</th>
-								<td>{{ product.variation_field_no_load_speed }}</td>
-							</tr>
-						{% endif %}
-
-						{% if product.variation_field_spindle_thread|render|striptags|trim %}
-							<tr>
-								<th>Spindle Thread</th>
-								<td>{{ product.variation_field_spindle_thread }}</td>
-							</tr>
-						{% endif %}
-
-						{% if product.variation_field_spindle_lock|render|striptags|trim %}
-							<tr>
-								<th>Spindle Lock</th>
-								<td>{{ product.variation_field_spindle_lock }}</td>
-							</tr>
-						{% endif %}
-
-						{% if product.variation_field_power_source_type|render|striptags|trim %}
-							<tr>
-								<th>Power Source Type</th>
-								<td>{{ product.variation_field_power_source_type }}</td>
-							</tr>
-						{% endif %}
+								{% if show_field %}
+									<tr>
+										<th>{{ field['#title']|default(key|replace({'variation_field_': ''})|replace({'_': ' '})|title) }}</th>
+										<td>{{ field }}</td>
+									</tr>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
 					</tbody>
 				</table>
 			</div>
-				{% if product.variation_field_description %}
-					<h2 class="description-title"> Product Description</h2>
+			{% if product.variation_field_description %}
+				<h2 class="description-title">
+					Product Description</h2>
 				<div class="product-description">
 					{{ product.variation_field_description }}
 				</div>
