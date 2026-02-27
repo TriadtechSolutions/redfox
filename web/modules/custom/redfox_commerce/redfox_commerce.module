@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @file
+ * Redfox Commerce module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\commerce_order\Entity\OrderItemInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function redfox_commerce_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (strpos($form_id, 'commerce_order_item_add_to_cart_form') === FALSE) {
+    return;
+  }
+
+  $request = \Drupal::request();
+  $variation_id = $request->query->get('v');
+
+  if (!$variation_id || !is_numeric($variation_id)) {
+    return;
+  }
+
+  // Store in form state (more reliable than session across submit handlers).
+  $form_state->set('redfox_variation_id', (int) $variation_id);
+
+  // Also keep session as fallback for presave.
+  $request->getSession()->set('redfox_variation_id', (int) $variation_id);
+
+  // Must run BEFORE Commerce's own submit handler.
+  array_unshift($form['#submit'], 'redfox_commerce_add_to_cart_submit');
+}
+
+/**
+ * Submit handler - runs before Commerce's addOrderItem().
+ */
+function redfox_commerce_add_to_cart_submit($form, FormStateInterface &$form_state) {
+  $variation_id = $form_state->get('redfox_variation_id');
+
+  if (!$variation_id) {
+    return;
+  }
+
+  /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $variation */
+  $variation = \Drupal::entityTypeManager()
+    ->getStorage('commerce_product_variation')
+    ->load($variation_id);
+
+  if (!$variation) {
+    return;
+  }
+
+  $form_object = $form_state->getFormObject();
+  if (!method_exists($form_object, 'getEntity')) {
+    return;
+  }
+
+  /** @var \Drupal\commerce_order\Entity\OrderItemInterface $order_item */
+  $order_item = $form_object->getEntity();
+  if (!$order_item) {
+    return;
+  }
+
+  // Set correct variation on the order item entity in memory.
+  $order_item->set('purchased_entity', $variation);
+  $order_item->set('unit_price', $variation->getPrice());
+
+  // -----------------------------------------------------------------------
+  // CRITICAL: Commerce's AddToCartForm::submitForm() calls
+  // $this->entity = $this->buildEntity($form, $form_state) which will
+  // REBUILD the entity from form values — overwriting what we just set.
+  // We must also override the 'purchased_entity' in the form field values
+  // so buildEntity() picks up our variation.
+  // -----------------------------------------------------------------------
+
+  // Override the selected variation in form state values so buildEntity()
+  // uses our variation when it reconstructs the order item.
+  $form_state->setValue(['purchased_entity', 0, 'variation'], $variation_id);
+
+  // Some Commerce versions store it differently — cover both:
+  if ($form_state->hasValue('purchased_entity')) {
+    $purchased = $form_state->getValue('purchased_entity');
+    if (is_array($purchased)) {
+      $purchased[0]['variation'] = $variation_id;
+      $form_state->setValue('purchased_entity', $purchased);
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for commerce_order_item.
+ *
+ * Last line of defense — if buildEntity() still got the wrong variation,
+ * correct it before the DB write.
+ */
+function redfox_commerce_commerce_order_item_presave(OrderItemInterface $order_item) {
+  $session = \Drupal::request()->getSession();
+  $variation_id = $session->get('redfox_variation_id');
+
+  if (!$variation_id) {
+    return;
+  }
+
+  $variation = \Drupal::entityTypeManager()
+    ->getStorage('commerce_product_variation')
+    ->load($variation_id);
+
+  if (!$variation) {
+    $session->remove('redfox_variation_id');
+    return;
+  }
+
+  $current = $order_item->getPurchasedEntity();
+  if ($current && $current->getProductId() == $variation->getProductId()) {
+    $order_item->set('purchased_entity', $variation);
+    $order_item->set('unit_price', $variation->getPrice());
+  }
+
+  $session->remove('redfox_variation_id');
+}

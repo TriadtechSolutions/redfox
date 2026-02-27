@@ -1,0 +1,8 @@
+services:
+  redfox_commerce.cart_manager:
+    class: Drupal\redfox_commerce\RedfoxCartManager
+    decorates: commerce_cart.cart_manager
+    arguments:
+      - '@redfox_commerce.cart_manager.inner'
+      - '@entity_type.manager'
+      - '@request_stack'
