@@ -1538,3 +1538,9 @@
     position: relative;
   }
 }
+
+/* Better Exposed Filter */
+
+form.bef-exposed-form .form-check-label {
+  color: #000;
+}
