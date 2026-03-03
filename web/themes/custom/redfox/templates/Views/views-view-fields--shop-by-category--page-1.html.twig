@@ -1,0 +1,8 @@
+<a href="/shop-by-category/{{ fields.tid.content|striptags|trim }}" class="category-card">
+	<div class="category-card__image">
+		<img src="{{ fields.field_category_image.content|striptags|trim }}" alt="{{ fields.name.content|striptags|trim }}">
+	</div>
+	<div class="category-card__name">
+		{{ fields.name.content }}
+	</div>
+</a>

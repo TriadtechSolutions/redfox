@@ -1,0 +1,18 @@
+<div class="product-card">
+	<div class="product-card__image-wrapper">
+		<a href="{{ fields.view_node.content }}">
+			{{ fields.field_product_image.content }}
+		</a>
+	</div>
+
+	<div class="product-card__content">
+		<h3 class="product-card__title">
+			<a href="{{ fields.view_node.content }}">{{ fields.title.content }}</a>
+		</h3>
+
+		<div class="product-card__price-row">
+			<div class="product-card__price">{{ fields.price__number.content }}</div>
+			<div class="product-card__status">In Stock</div>
+		</div>
+	</div>
+</div>
