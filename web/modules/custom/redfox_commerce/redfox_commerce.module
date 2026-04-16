@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\commerce_order\Entity\OrderItemInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_form_alter().
@@ -31,6 +32,11 @@ function redfox_commerce_form_alter(&$form, FormStateInterface $form_state, $for
 
   // Must run BEFORE Commerce's own submit handler.
   array_unshift($form['#submit'], 'redfox_commerce_add_to_cart_submit');
+
+  // Override the commerce_buy_now button submit handler if it exists.
+  if (isset($form['actions']['commerce_buy_now'])) {
+    $form['actions']['commerce_buy_now']['#submit'] = ['redfox_commerce_buy_now_submit'];
+  }
 }
 
 /**
@@ -119,4 +125,89 @@ function redfox_commerce_commerce_order_item_presave(OrderItemInterface $order_i
   }
 
   $session->remove('redfox_variation_id');
+}
+
+/**
+ * Custom submit handler for Buy Now button from commerce_buy_now module.
+ */
+function redfox_commerce_buy_now_submit($form, FormStateInterface $form_state) {
+  $form_storage = $form_state->getStorage();
+  $product = $form_storage['product'];
+
+  // Try to get the selected variation from the form object if possible,
+  // otherwise fallback to the first variation.
+  $variation_obj = NULL;
+  $form_object = $form_state->getFormObject();
+  if (method_exists($form_object, 'getEntity')) {
+    $order_item = $form_object->getEntity();
+    if ($order_item && method_exists($order_item, 'getPurchasedEntity')) {
+      $variation_obj = $order_item->getPurchasedEntity();
+    }
+  }
+
+  $entity_type_manager = \Drupal::entityTypeManager();
+  if (!$variation_obj) {
+    $product_variation_id = $product->get('variations')->target_id;
+    $variation_obj = $entity_type_manager
+      ->getStorage('commerce_product_variation')
+      ->load($product_variation_id);
+  }
+
+  $store_id = $product->get('stores')->target_id;
+  $store = $entity_type_manager
+    ->getStorage('commerce_store')
+    ->load($store_id);
+
+  // Instead of using the default cart (which merges with previous items),
+  // we use a separate order for "Buy Now".
+  $session = \Drupal::request()->getSession();
+  $buy_now_order_id = $session->get('commerce_buy_now_order_id');
+  $order_storage = $entity_type_manager->getStorage('commerce_order');
+  $buy_now_order = NULL;
+
+  if ($buy_now_order_id) {
+    $buy_now_order = $order_storage->load($buy_now_order_id);
+    // Ensure it's still a draft and for the correct store.
+    if (!$buy_now_order || $buy_now_order->getState()->getId() != 'draft' || $buy_now_order->getStoreId() != $store->id()) {
+      $buy_now_order = NULL;
+      $session->remove('commerce_buy_now_order_id');
+    }
+  }
+
+  if (!$buy_now_order) {
+    $buy_now_order = $order_storage->create([
+      'type' => 'default',
+      'state' => 'draft',
+      'mail' => \Drupal::currentUser()->getEmail(),
+      'uid' => \Drupal::currentUser()->id(),
+      'store_id' => $store->id(),
+      'data' => [
+        'is_buy_now' => TRUE,
+      ],
+    ]);
+    $buy_now_order->save();
+    $session->set('commerce_buy_now_order_id', $buy_now_order->id());
+  }
+
+  // Clear any existing items in the Buy Now order to ensure "only this product".
+  foreach ($buy_now_order->getItems() as $item) {
+    $buy_now_order->removeItem($item);
+    $item->delete();
+  }
+
+  $user_input = $form_state->getUserInput();
+  $quantity = isset($user_input['quantity'][0]['value']) && $user_input['quantity'][0]['value'] > 0
+    ? $user_input['quantity'][0]['value']
+    : '1';
+
+  // Add the new item to the order using cart_manager (handles type resolution internally).
+  $cart_manager = \Drupal::service('commerce_cart.cart_manager');
+  $cart_manager->addEntity($buy_now_order, $variation_obj, $quantity);
+  // Suppress the "added to your cart" notification for Buy Now flow.
+  \Drupal::messenger()->deleteByType('status');
+
+  // Redirect to the checkout form for this specific order.
+  $form_state->setRedirect('commerce_checkout.form', [
+    'commerce_order' => $buy_now_order->id(),
+  ]);
 }
