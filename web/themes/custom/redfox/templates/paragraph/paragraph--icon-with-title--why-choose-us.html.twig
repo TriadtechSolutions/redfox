@@ -1,0 +1,21 @@
+<div class="why-choose-item">
+  {% if content.field_icon|render %}
+    <div class="why-choose-icon">
+      {{ content.field_icon }}
+    </div>
+  {% endif %}
+
+  <div class="why-choose-content">
+    {% if content.field_icon_title|render %}
+      <h3 class="item-title">
+        {{ content.field_icon_title }}
+      </h3>
+    {% endif %}
+
+    {% if content.field_title_description|render %}
+      <p class="item-description">
+        {{ content.field_title_description }}
+      </p>
+    {% endif %}
+  </div>
+</div>

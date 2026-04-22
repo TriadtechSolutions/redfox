@@ -2009,3 +2009,404 @@ form.bef-exposed-form .form-check-label {
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* ══════════════════════════════════════════
+   FEATURES SECTION — Full Responsive CSS
+══════════════════════════════════════════ */
+
+/* Outer wrapper */
+.icon-features {
+  background-color: #AC0401;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* Inner field wrapper — flex row */
+.icon-features .field--name-field-icon-features {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 0 60px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Each paragraph field__item */
+.icon-features .field--name-field-icon-features>.field__item {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+/* The feature-item div inside each paragraph */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Circle icon wrapper */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+/* Icon image / svg inside the circle */
+.icon-circle img,
+.icon-circle svg {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+  display: block;
+  margin: 10px;
+  margin-left: 28px;
+}
+
+/* Feature title */
+.feature-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+/* Feature description */
+.feature-description,
+.feature-description p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.field--name-field-title-description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+
+/* ══════════════════════════════════════════
+   TABLET  (768px – 1024px) — single row
+══════════════════════════════════════════ */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .icon-features {
+    height: auto;
+    padding: 36px 0;
+  }
+
+  .icon-features .field--name-field-icon-features {
+    gap: 32px;
+    padding: 0 32px;
+  }
+
+  .icon-circle {
+    width: 58px;
+    height: 58px;
+  }
+
+  .icon-circle img,
+  .icon-circle svg {
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    margin-left: 22px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .field--name-field-title-description {
+    font-size: 15px;
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   MOBILE  (up to 767px) — one per row
+══════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .icon-features {
+    height: auto;
+    padding: 32px 20px;
+    align-items: flex-start;
+  }
+
+  /* Switch to block so each item stacks */
+  .icon-features .field--name-field-icon-features {
+    display: block;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Each item full width with bottom spacing */
+  .icon-features .field--name-field-icon-features>.field__item {
+    display: block;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .icon-features .field--name-field-icon-features>.field__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .icon-circle {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+  }
+
+  .icon-circle img,
+  .icon-circle svg {
+    width: 26px;
+    height: 26px;
+    /* margin: 8px;
+    margin-left: 20px; */
+    margin-right: 28px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .field--name-field-title-description {
+    font-size: 15px;
+  }
+}
+
+/* =================================================
+   WHY CHOOSE US SECTION
+   ================================================= */
+
+.why-choose-us-section {
+  padding: 80px 0;
+  background-color: #ffffff !important;
+}
+
+.why-choose-us-section .field--name-field-title-description {
+  color: #000000 !important;
+}
+
+.why-choose-us-section .section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 15px;
+}
+
+.why-choose-us-section .section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111111 !important;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.why-choose-us-section .section-description {
+  font-size: 16px;
+  color: #666666 !important;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── GRID: 4 equal columns, evenly spaced ── */
+.why-choose-us-grid .field--name-field-icon-with-title {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* ← even distribution across full width */
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.why-choose-us-grid .field--name-field-icon-with-title .field__item {
+  flex: 1 1 0;
+  /* ← all 4 grow equally */
+  min-width: 0;
+  max-width: none;
+}
+
+/* ── ITEM WRAPPER ── */
+.why-choose-item {
+  padding: 10px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* ── ICON: small, matching Image 2 ── */
+.why-choose-icon {
+  width: 36px;
+  /* ← kept small as in Image 2 */
+  height: 36px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(13%) sepia(85%) saturate(7408%) hue-rotate(358deg) brightness(94%) contrast(118%);
+}
+
+.why-choose-icon img,
+.why-choose-icon svg,
+.why-choose-icon picture img {
+  width: 50px !important;
+  height: 100% !important;
+  object-fit: contain;
+  margin-left: -10px;
+}
+
+/* ── TITLE ── */
+.why-choose-item .item-title {
+  font-size: 22px;
+  /* ← slightly smaller, matches Image 2 */
+  font-weight: 700;
+  color: #000000 !important;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  white-space: nowrap;
+  /* ← prevents title from wrapping */
+}
+
+/* ── DESCRIPTION ── */
+.why-choose-item .item-description {
+  font-size: 14px;
+  color: #555555 !important;
+  line-height: 1.5;
+  max-width: 100%;
+  /* ← fills column naturally */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── RESPONSIVE: Tablet (2 columns) ── */
+@media (max-width: 1024px) {
+  .why-choose-us-grid .field--name-field-icon-with-title {
+    justify-content: center;
+    gap: 40px 60px;
+    /* Increased gap for better column separation */
+    max-width: 900px;
+  }
+
+  .why-choose-icon img,
+  .why-choose-icon svg,
+  .why-choose-icon picture img {
+    margin-left: 0 !important;
+    /* Center icon properly */
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .why-choose-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+  }
+
+  .why-choose-us-grid .field--name-field-icon-with-title .field__item {
+    flex: 0 0 calc(50% - 30px);
+    max-width: calc(50% - 30px);
+    margin-bottom: 10px;
+  }
+
+  .why-choose-item .item-title {
+    font-size: 21px;
+    font-weight: 800;
+    white-space: nowrap;
+    /* Prevent wrap as in expected design */
+    margin-bottom: 8px;
+  }
+
+  .why-choose-item .item-description {
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 250px;
+  }
+}
+
+/* ── RESPONSIVE: Mobile (1 column) ── */
+@media (max-width: 767px) {
+  .why-choose-us-section {
+    padding: 50px 0;
+  }
+
+  .why-choose-icon img,
+  .why-choose-icon svg,
+  .why-choose-icon picture img {
+    margin-left: 0px;
+  }
+
+  .why-choose-us-section .section-title {
+    font-size: 26px;
+  }
+
+  .why-choose-us-section .section-description {
+    font-size: 15px;
+  }
+
+  .why-choose-us-grid .field--name-field-icon-with-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 0 24px;
+  }
+
+  .why-choose-us-grid .field--name-field-icon-with-title .field__item {
+    flex: 0 0 100%;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .why-choose-us-section .section-header {
+    margin-bottom: 30px;
+  }
+
+  .why-choose-item {
+    padding: 0;
+  }
+
+  .why-choose-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+  }
+
+  .why-choose-item .item-title {
+    font-size: 17px;
+    white-space: normal;
+  }
+}

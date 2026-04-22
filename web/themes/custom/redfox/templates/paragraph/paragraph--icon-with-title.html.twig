@@ -1,0 +1,19 @@
+<div class="feature-item">
+  {% if content.field_icon is not empty %}
+    <div class="icon-circle">
+      {{ content.field_icon }}
+    </div>
+  {% endif %}
+
+  {% if content.field_icon_title is not empty %}
+    <h3 class="feature-title">
+      {{ content.field_icon_title }}
+    </h3>
+  {% endif %}
+
+  {% if content.field_title_description is not empty %}
+    <p class="feature-description">
+      {{ content.field_title_description }}
+    </p>
+  {% endif %}
+</div>

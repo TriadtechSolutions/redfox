@@ -1,0 +1,15 @@
+<section class="why-choose-us-section">
+  <div class="container">
+    <div class="section-header">
+      {% if content.field_title|render %}
+        <h2 class="section-title">{{ content.field_title }}</h2>
+      {% endif %}
+      {% if content.field_description|render %}
+        <div class="section-description">{{ content.field_description }}</div>
+      {% endif %}
+    </div>
+    <div class="why-choose-us-grid">
+      {{ content.field_icon_with_title }}
+    </div>
+  </div>
+</section>
