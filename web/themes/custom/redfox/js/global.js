@@ -211,6 +211,24 @@
       });
     }
   };
+  Drupal.behaviors.hotDealsLoadMore = {
+    attach: function (context) {
+      once('hot-deals-load-more', '.js-load-more-hot-deals', context).forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const grid = document.querySelector('.js-hot-deals-grid');
+          if (grid) {
+            grid.classList.add('show-all');
+            // Hide the button wrapper
+            const wrapper = btn.closest('.load-more-wrapper');
+            if (wrapper) {
+              wrapper.style.display = 'none';
+            }
+          }
+        });
+      });
+    }
+  };
 })(Drupal, once);
 
 Drupal.behaviors.homeBannerSwiper = {

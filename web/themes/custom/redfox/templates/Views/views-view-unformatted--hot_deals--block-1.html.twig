@@ -1,0 +1,13 @@
+<div class="section-header">
+	<h2 class="section-title">Hot Deals</h2>
+</div>
+<div class="hot-deals-grid js-hot-deals-grid">
+	{% for row in rows %}
+		<div class="hot-deals-grid__item hot-deals-item">
+			{{ row.content }}
+		</div>
+	{% endfor %}
+</div>
+<div class="load-more-wrapper">
+	<button class="btn-load-more js-load-more-hot-deals">Load More</button>
+</div>
