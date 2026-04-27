@@ -1,0 +1,13 @@
+<div class="section-header">
+	<h2 class="section-title">Featured & Latest</h2>
+</div>
+<div class="featured-latest-grid">
+	{% for row in rows %}
+		<div class="featured-latest-grid__item">
+			{{ row.content }}
+		</div>
+	{% endfor %}
+</div>
+<div class="section-footer">
+	<a href="/featured-latest" class="btn-view-all">View All Products</a>
+</div>

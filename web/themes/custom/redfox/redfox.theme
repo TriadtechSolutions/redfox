@@ -52,4 +52,40 @@ function redfox_preprocess_page(&$variables) {
   if ($route_name == 'entity.commerce_product.canonical') {
     $variables['#attached']['library'][] = 'redfox/commerce-styling';
   }
+
+  // Load library on front page only
+  if ($variables['is_front']) {
+    $variables['#attached']['library'][] = 'redfox/homepage-styling';
+  }
+
+  // Load brands overview styling
+  if ($route_name == 'view.shop_by_brands.page_1') {
+    $variables['#attached']['library'][] = 'redfox/brands-styling';
+  }
+
+  // Load categories overview styling
+  if ($route_name == 'view.shop_by_category.page_1') {
+    $variables['#attached']['library'][] = 'redfox/categories-styling';
+  }
+
+
+  // Load product listing styling (brand/category products)
+  if ($route_name == 'view.brand_products.page_1' || $route_name == 'view.category_products.page_1') {
+    $variables['#attached']['library'][] = 'redfox/product-listing-styling';
+  }
+
+  // Load user login styling
+  if ($route_name == 'user.login') {
+    $variables['#attached']['library'][] = 'redfox/login-styling';
+  }
+
+  // Load user registration styling
+  if ($route_name == 'user.register') {
+    $variables['#attached']['library'][] = 'redfox/register-styling';
+  }
+
+  // Load password reset styling
+  if ($route_name == 'user.pass') {
+    $variables['#attached']['library'][] = 'redfox/password-reset-styling';
+  }
 }

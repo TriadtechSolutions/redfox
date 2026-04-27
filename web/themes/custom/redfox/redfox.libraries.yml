@@ -49,3 +49,46 @@ swiper:
   dependencies:
     - core/drupal
     - core/jquery
+
+homepage-styling:
+  version: VERSION
+  css:
+    theme:
+      css/homepage.css: {}
+
+brands-styling:
+  version: VERSION
+  css:
+    theme:
+      css/brands.css: {}
+
+categories-styling:
+  version: VERSION
+  css:
+    theme:
+      css/categories.css: {}
+
+
+product-listing-styling:
+  version: VERSION
+  css:
+    theme:
+      css/product-listing.css: {}
+
+login-styling:
+  version: VERSION
+  css:
+    theme:
+      css/user-login.css: {}
+
+register-styling:
+  version: VERSION
+  css:
+    theme:
+      css/user-register.css: {}
+
+password-reset-styling:
+  version: VERSION
+  css:
+    theme:
+      css/user-pass.css: {}
