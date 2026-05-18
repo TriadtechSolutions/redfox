@@ -1,0 +1,12 @@
+<div class="featured-latest-page-wrapper">
+	<div class="section-header">
+		<h2 class="section-title">Featured & Latest Products</h2>
+	</div>
+	<div class="featured-latest-grid four-columns">
+		{% for row in rows %}
+			<div class="featured-latest-grid__item">
+				{{ row.content }}
+			</div>
+		{% endfor %}
+	</div>
+</div>

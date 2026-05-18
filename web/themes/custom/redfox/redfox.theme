@@ -88,4 +88,20 @@ function redfox_preprocess_page(&$variables) {
   if ($route_name == 'user.pass') {
     $variables['#attached']['library'][] = 'redfox/password-reset-styling';
   }
+
+  // Load featured & latest page styling
+  if ($route_name == 'view.featured_latest.page_1') {
+    $variables['#attached']['library'][] = 'redfox/featured-latest-styling';
+  }
+
+  // Load commerce cart styling
+  if ($route_name == 'commerce_cart.page') {
+    $variables['#attached']['library'][] = 'redfox/commerce-styling';
+    $variables['#attached']['library'][] = 'redfox/commerce-cart-styling';
+  }
+
+  // Load commerce checkout styling
+  if ($route_name == 'commerce_checkout.form') {
+    $variables['#attached']['library'][] = 'redfox/commerce-checkout-styling';
+  }
 }

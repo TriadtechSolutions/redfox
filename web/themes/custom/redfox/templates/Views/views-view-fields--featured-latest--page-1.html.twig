@@ -1,0 +1,24 @@
+<div class="product-card featured-latest-card">
+	<div class="product-card__badges">
+		{% if fields.field_featured.content|render|striptags|trim == '1' or fields.field_featured.content|render|striptags|trim == 'On' or fields.field_featured.content|render|striptags|trim == 'Yes' %}
+			<span class="badge featured">Featured</span>
+		{% endif %}
+		{% if fields.field_latest.content|render|striptags|trim == '1' or fields.field_latest.content|render|striptags|trim == 'On' or fields.field_latest.content|render|striptags|trim == 'Yes' %}
+			<span class="badge latest">Latest</span>
+		{% endif %}
+	</div>
+
+	<div class="product-card__image-wrapper">
+		{{ fields.field_product_image.content }}
+	</div>
+
+	<div class="product-card__content">
+		<h3 class="product-card__title">
+			{{ fields.title.content }}
+		</h3>
+
+		<div class="product-card__price-row">
+			<div class="product-card__price">{{ fields.price__number.content }}</div>
+		</div>
+	</div>
+</div>

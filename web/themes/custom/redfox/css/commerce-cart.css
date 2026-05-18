@@ -1,0 +1,459 @@
+/* =================================================
+   COMMERCE CART PAGE — Modern Design
+   ================================================= */
+
+.commerce-cart-form-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 2-Column Grid Layout */
+.cart-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Items Section */
+.cart-items-section {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border: 1px solid #f0f0f0;
+}
+
+/* Table Styling - Modernizing the Bootstrap Table */
+.cart-items-section .table-responsive {
+    border: none;
+    overflow: visible !important;
+    overflow-x: hidden !important;
+}
+
+.cart-items-section table.views-table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    margin-top: -15px;
+    width: 100%;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-accent-bg: transparent !important;
+}
+
+/* Remove Bootstrap Stripe/Hover Backgrounds Completely */
+.cart-items-section table.table-striped>tbody>tr:nth-of-type(odd)>*,
+.cart-items-section table.table-hover>tbody>tr:hover>* {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* === NUKE THEAD globally — hide header row on ALL sizes below 768px === */
+/* Also style it for desktop */
+.cart-items-section thead th {
+    border: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    padding: 10px 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Remove button — desktop styles kept intact */
+.delete-order-item {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+}
+
+.cart-items-section tbody tr {
+    background: #fff !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-items-section tbody td {
+    padding: 20px;
+    vertical-align: middle;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.cart-items-section tbody td:first-child {
+    border-left: 1px solid #f1f5f9;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.cart-items-section tbody td:last-child {
+    border-right: 1px solid #f1f5f9;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Image Column */
+.views-field-field-product-image img {
+    border-radius: 8px;
+    background: #f8fafc;
+    padding: 5px;
+}
+
+/* Title Column */
+.views-field-purchased-entity a {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.views-field-purchased-entity a:hover {
+    color: #AC0401;
+}
+
+/* Quantity Input */
+.quantity-edit-input {
+    max-width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 600;
+}
+
+/* Remove Button */
+.delete-order-item {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+}
+
+.delete-order-item:hover {
+    background: #fecaca !important;
+    transform: scale(1.05);
+}
+
+/* Summary Section */
+.cart-summary-section {
+    position: sticky;
+    top: 20px;
+}
+
+.cart-summary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.summary-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* Order Totals */
+.order-total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #64748b;
+}
+
+.order-total-line__total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f1f5f9;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.order-total-line-value {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.order-total-line__total .order-total-line-value {
+    color: #AC0401;
+}
+
+/* Form Actions */
+.cart-form-actions {
+    margin-top: 30px;
+}
+
+.cart-form-actions .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Increased gap */
+}
+
+.cart-form-actions .btn {
+    width: 100%;
+    height: 55px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+#edit-submit {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+#edit-submit:hover {
+    background: #e2e8f0 !important;
+}
+
+#edit-checkout {
+    background: linear-gradient(135deg, #AC0401 0%, #d90429 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(172, 4, 1, 0.3);
+}
+
+#edit-checkout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(172, 4, 1, 0.4);
+}
+
+/* Responsive Customizations */
+@media (max-width: 1200px) {
+    .cart-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cart-summary-section {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Prevent all horizontal overflow */
+    .commerce-cart-form-container {
+        overflow-x: hidden;
+        padding: 0 12px;
+    }
+
+    .cart-items-section {
+        padding: 12px;
+        overflow: hidden;
+    }
+
+    /* Disable Bootstrap table-responsive scroll on mobile */
+    .cart-items-section .table-responsive {
+        overflow: hidden !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Force table into block mode */
+    .cart-items-section table.views-table {
+        display: block !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        border-spacing: 0 !important;
+    }
+
+    /* NUKE THEAD — all selectors to guarantee hidden */
+    .cart-items-section thead,
+    .cart-items-section table thead,
+    .cart-items-section table.views-table thead,
+    .cart-items-section thead tr,
+    .cart-items-section thead th,
+    .cart-items-section table thead tr,
+    .cart-items-section table thead th {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .cart-items-section tbody {
+        display: block !important;
+        width: 100%;
+    }
+
+    /* Each row becomes a card */
+    .cart-items-section tbody tr {
+        display: grid !important;
+        grid-template-columns: 75px 1fr !important;
+        grid-template-rows: auto auto auto auto !important;
+        gap: 6px 12px !important;
+        align-items: start !important;
+        margin-bottom: 14px !important;
+        padding: 12px !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /* Reset Bootstrap stripe/hover backgrounds on mobile */
+    .cart-items-section table.table-striped>tbody>tr:nth-of-type(odd)>*,
+    .cart-items-section table.table-hover>tbody>tr:hover>* {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        color: inherit !important;
+    }
+
+    .cart-items-section tbody td {
+        display: block !important;
+        border: none !important;
+        padding: 0 !important;
+        background: transparent !important;
+        text-align: left !important;
+        color: #1e293b !important;
+    }
+
+    /* Remove pseudo-element labels */
+    .cart-items-section tbody td::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* === GRID PLACEMENT === */
+
+    /* Product image — left column, spans rows 1-3 */
+    .cart-items-section .views-field-field-product-image {
+        grid-column: 1 !important;
+        grid-row: 1 / span 3 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        padding-top: 4px !important;
+    }
+
+    .cart-items-section .views-field-field-product-image img {
+        width: 80px !important;
+        height: 80px !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
+        background: #f8fafc !important;
+        padding: 4px !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+
+    /* Product name — right column, row 1 */
+    .cart-items-section .views-field-purchased-entity {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        align-self: start !important;
+        margin-top: 2px !important;
+    }
+
+    .cart-items-section .views-field-purchased-entity a {
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        text-decoration: none !important;
+        line-height: 1.3 !important;
+        word-break: break-word !important;
+    }
+
+    /* Unit price — right column, row 2 */
+    .cart-items-section .views-field-unit-price__number {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        font-size: 14px !important;
+        font-weight: 800 !important;
+        color: #1e293b !important;
+    }
+
+    /* Hide total price (redundant on mobile) */
+    .cart-items-section .views-field-total-price__number {
+        display: none !important;
+    }
+
+    /* Quantity input — left column, row 4 (below image) */
+    .cart-items-section .views-field-edit-quantity {
+        grid-column: 1 !important;
+        grid-row: 4 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding-top: 12px !important;
+        margin-top: 8px !important;
+        border-top: 1px solid #f1f5f9 !important;
+    }
+
+    /* Remove button — right column, row 4 */
+    .cart-items-section .views-field-remove-button {
+        grid-column: 2 !important;
+        grid-row: 4 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        padding-top: 12px !important;
+        margin-top: 8px !important;
+        border-top: 1px solid #f1f5f9 !important;
+    }
+
+    /* TRASH ICON — hide text, show 🗑 via ::before */
+    .cart-items-section .views-field-remove-button .delete-order-item {
+        font-size: 0 !important;
+        color: transparent !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 4px !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    .cart-items-section .views-field-remove-button .delete-order-item::before {
+        content: "\1F5D1";
+        font-size: 18px !important;
+        color: #dc2626 !important;
+        display: block !important;
+    }
+
+    /* Summary card tweaks for mobile */
+    .cart-summary-card {
+        padding: 18px !important;
+    }
+
+    .summary-title {
+        font-size: 16px;
+    }
+
+    .order-total-line {
+        font-size: 13px;
+    }
+
+    .order-total-line__total {
+        font-size: 16px;
+    }
+}

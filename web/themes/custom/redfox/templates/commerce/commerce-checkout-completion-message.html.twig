@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the completion message.
+ *
+ * Available variables:
+ * - order_entity: The order entity.
+ * - message: The completion message.
+ * - payment_instructions: The payment instructions, if provided.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="checkout-complete text-center py-5" style="max-width: 800px; margin: 0 auto;">
+	<div class="checkout-success-icon mb-4">
+		<img src="/themes/custom/redfox/images/order-success.png" alt="Successful Partnership - Order Completed" style="max-width: 350px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+	</div>
+
+	<h1 class="display-5 mb-3 fw-bold" style="color: #1e293b !important;">Thanks, your order was completed!</h1>
+
+	{% if payment_instructions %}
+		<div class="checkout-complete__payment-instructions mt-4 p-4 text-start d-inline-block w-100" style="max-width: 500px; background: #f8fafc; border-radius: 12px; border: 1px solid #f1f5f9;">
+			<h3 class="mb-3" style="color: #1e293b; font-weight: 700; font-size: 18px;">{{ 'Payment instructions'|t }}</h3>
+			<div style="color: #475569; font-size: 15px;">
+				{{ payment_instructions }}
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="mt-5">
+		<a href="/" class="btn btn-primary" style="background: linear-gradient(135deg, #AC0401 0%, #d90429 100%); color: #fff; text-decoration: none; border: none; padding: 15px 40px; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 12px; box-shadow: 0 4px 15px rgba(172, 4, 1, 0.3); transition: all 0.3s ease;">
+			Continue Shopping
+		</a>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for the commerce cart form.
+ */
+#}
+<div class="commerce-cart-form-container">
+	<form{{attributes}}>
+		<div class="cart-layout-grid">
+			<div class="cart-items-section">
+				{{ element.header }}
+				{{ element.output }}
+			</div>
+			<div class="cart-summary-section">
+				<div class="cart-summary-card">
+					<h3 class="summary-title">Order Summary</h3>
+					<div class="summary-content">
+						{{ element.footer }}
+					</div>
+					<div class="cart-form-actions">
+						{{ element.actions }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Render hidden required form elements #}
+		{{ element.form_build_id }}
+		{{ element.form_token }}
+		{{ element.form_id }}
+	</form>
+</div>

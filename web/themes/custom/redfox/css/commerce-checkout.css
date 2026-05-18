@@ -1,0 +1,362 @@
+/* =================================================
+   COMMERCE CHECKOUT PAGE — Modern Premium Design
+   ================================================= */
+
+.layout-checkout-form {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --------------------------------------
+   Order Summary Card & Table
+   -------------------------------------- */
+.checkout-pane-order-summary {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 2rem;
+}
+
+.checkout-pane-order-summary h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* Modern reset for the views table */
+.view-commerce-checkout-order-summary .table-responsive {
+    border: none;
+}
+
+.view-commerce-checkout-order-summary table.views-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-accent-bg: transparent !important;
+}
+
+/* Remove Bootstrap Stripe/Hover Backgrounds Completely */
+.view-commerce-checkout-order-summary table.table-striped>tbody>tr:nth-of-type(odd)>*,
+.view-commerce-checkout-order-summary table.table-hover>tbody>tr:hover>* {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.view-commerce-checkout-order-summary table.views-table th,
+.view-commerce-checkout-order-summary table.views-table td {
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+/* Headers */
+.view-commerce-checkout-order-summary table.views-table thead th {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    padding: 10px 20px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Rows */
+.view-commerce-checkout-order-summary table.views-table tbody tr {
+    transition: background-color 0.2s ease;
+    background: #fff !important;
+}
+
+.view-commerce-checkout-order-summary table.views-table tbody tr:hover {
+    background-color: #f8fafc !important;
+}
+
+.view-commerce-checkout-order-summary table.views-table tbody td {
+    padding: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Column specific styles */
+.view-commerce-checkout-order-summary .views-field-quantity {
+    font-weight: 700;
+    color: #475569;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.view-commerce-checkout-order-summary .views-field-purchased-entity {
+    font-size: 16px;
+}
+
+.view-commerce-checkout-order-summary .views-field-purchased-entity .field--name-title {
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.view-commerce-checkout-order-summary .views-field-purchased-entity .field--name-product-id a {
+    color: #AC0401;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.view-commerce-checkout-order-summary .views-field-purchased-entity .field--name-product-id a:hover {
+    color: #d90429;
+}
+
+.view-commerce-checkout-order-summary .views-field-total-price__number {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 16px;
+}
+
+/* Product image styling */
+.view-commerce-checkout-order-summary .views-field-field-product-image {
+    text-align: center;
+}
+
+.view-commerce-checkout-order-summary .views-field-field-product-image img {
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+    background: #f8fafc;
+    padding: 5px;
+    display: block;
+}
+
+/* --------------------------------------
+   Totals Section
+   -------------------------------------- */
+.order-total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #64748b;
+    padding: 0 10px;
+}
+
+.order-total-line-value {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.order-total-line__total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f1f5f9;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.order-total-line__total .order-total-line-value {
+    color: #AC0401;
+}
+
+/* --------------------------------------
+   Coupon Form
+   -------------------------------------- */
+.checkout-pane-coupon-redemption {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 2rem;
+}
+
+.checkout-pane-coupon-redemption .form-type-textfield label {
+    font-weight: 700;
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.checkout-pane-coupon-redemption .form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 15px;
+    color: #1e293b;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.checkout-pane-coupon-redemption .form-control:focus {
+    border-color: #AC0401;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(172, 4, 1, 0.1);
+}
+
+.checkout-pane-coupon-redemption .button {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    font-weight: 700;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.checkout-pane-coupon-redemption .button:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* --------------------------------------
+   Form Actions (Footer Buttons)
+   -------------------------------------- */
+.layout-region-checkout-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-right: 0;
+}
+
+.layout-region-checkout-footer .button {
+    background: linear-gradient(135deg, #AC0401 0%, #d90429 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(172, 4, 1, 0.3);
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.layout-region-checkout-footer .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(172, 4, 1, 0.4);
+}
+
+/* Responsive Customizations */
+@media (max-width: 768px) {
+    .checkout-pane-order-summary {
+        padding: 15px;
+    }
+
+    .view-commerce-checkout-order-summary table.views-table,
+    .view-commerce-checkout-order-summary thead,
+    .view-commerce-checkout-order-summary tbody,
+    .view-commerce-checkout-order-summary th,
+    .view-commerce-checkout-order-summary td,
+    .view-commerce-checkout-order-summary tr {
+        display: block;
+    }
+
+    .view-commerce-checkout-order-summary thead {
+        display: none;
+    }
+
+    .view-commerce-checkout-order-summary tbody tr {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #f1f5f9;
+        border-radius: 12px;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 80px auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 8px 15px;
+        align-items: center;
+        position: relative;
+    }
+
+    .view-commerce-checkout-order-summary tbody td {
+        border: none !important;
+        padding: 0 !important;
+        text-align: left !important;
+        display: block !important;
+    }
+
+    /* Remove redundant textual labels for mobile */
+    .view-commerce-checkout-order-summary tbody td::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-field-product-image {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-field-product-image img {
+        width: 100%;
+        height: auto;
+        max-width: 80px;
+        border-radius: 8px;
+        object-fit: contain;
+        background: #f8fafc;
+        padding: 4px;
+        margin: 0;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-purchased-entity {
+        grid-column: 2 / span 2;
+        grid-row: 1;
+        margin-top: 2px;
+        align-self: start;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-purchased-entity .field--name-title {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-purchased-entity .field--name-product-id {
+        margin-bottom: 0;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-quantity {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 13px;
+        color: #475569;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-quantity::before {
+        content: "Qty: ";
+        margin-right: 4px;
+        color: #64748b;
+        font-weight: 600;
+    }
+
+    .view-commerce-checkout-order-summary .views-field-total-price__number {
+        grid-column: 3;
+        grid-row: 2;
+        font-size: 16px;
+        font-weight: 800;
+        color: #1e293b;
+        text-align: right;
+    }
+}

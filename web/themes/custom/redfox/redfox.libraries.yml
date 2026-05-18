@@ -92,3 +92,21 @@ password-reset-styling:
   css:
     theme:
       css/user-pass.css: {}
+
+featured-latest-styling:
+  version: VERSION
+  css:
+    theme:
+      css/featured-latest-page.css: {}
+
+commerce-cart-styling:
+  version: VERSION
+  css:
+    theme:
+      css/commerce-cart.css: {}
+
+commerce-checkout-styling:
+  version: VERSION
+  css:
+    theme:
+      css/commerce-checkout.css: {}
