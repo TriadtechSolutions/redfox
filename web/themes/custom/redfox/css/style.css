@@ -27,12 +27,11 @@
 
 
 
-/* Search on top */
-#block-redfox-views-block-product-search-block-1 {
-  order: 1;
-  margin-bottom: 8px;
-  width: 100%;
-  text-align: -webkit-center;
+/* Hide second search on desktop (used for mobile search overlay) */
+@media (min-width: 992px) {
+  #block-redfox-views-block-product-search-block-1 {
+    display: none !important;
+  }
 }
 
 /* Menu below search */
@@ -105,52 +104,55 @@
 }
 
 /* Search wrapper */
-#views-exposed-form-product-search-block-1 .d-flex {
+.views-exposed-form .d-flex {
   padding: 10px;
   border-radius: 10px;
   align-items: center;
   max-width: 600px;
+  flex-wrap: nowrap !important;
 }
 
-
 /* Input field */
-#edit-search-api-fulltext {
-  border: none;
-  border-radius: 8px 0 0 8px;
-  height: 45px;
-  padding: 0 15px;
-  font-size: 15px;
-  box-shadow: none;
+[data-drupal-selector="edit-search-api-fulltext"] {
+  border: none !important;
+  border-radius: 8px 0 0 8px !important;
+  height: 45px !important;
+  padding: 0 15px !important;
+  font-size: 15px !important;
+  box-shadow: none !important;
+  width: 100% !important;
 }
 
 /* Remove default margin */
-#views-exposed-form-product-search-block-1 .form-item-search-api-fulltext {
-  margin-bottom: 0;
+.form-item-search-api-fulltext {
+  margin-bottom: 0 !important;
   flex: 1;
 }
 
+/* Search button container */
+[data-drupal-selector="edit-actions"] {
+  margin-bottom: 0 !important;
+}
+
 /* Search button */
-#edit-submit-product-search {
-  background: #8f0000;
-  border: none;
-  height: 45px;
-  width: 60px;
-  border-radius: 0 8px 8px 0;
-  color: white;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+button[data-drupal-selector^="edit-submit-product-search"] {
+  background: #8f0000 !important;
+  border: none !important;
+  height: 45px !important;
+  width: 60px !important;
+  border-radius: 0 8px 8px 0 !important;
+  color: white !important;
+  font-size: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Replace button text with icon */
-#edit-submit-product-search {
-  font-size: 0;
-}
-
-#edit-submit-product-search::before {
+button[data-drupal-selector^="edit-submit-product-search"]::before {
   content: "🔍";
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 #block-redfox-useraccountmenu .nav-item .nav-link--user {
