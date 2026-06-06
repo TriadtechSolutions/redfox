@@ -1,0 +1,17 @@
+{
+    "_hash": "954f572154f15ed6367ee93ec50b0cf9b2b49350ad6663fe2c4a0e23cb5677ab",
+    "patches": {
+        "drupal/drupal_commerce_razorpay": [
+            {
+                "package": "drupal/drupal_commerce_razorpay",
+                "description": "Fix payment type null and billing profile first on null",
+                "url": "patches/razorpay_fix.patch",
+                "sha256": "6d9e25277a44357cf77bc4bad174f94b53b3f5732c58ff522d82565f609ad13f",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

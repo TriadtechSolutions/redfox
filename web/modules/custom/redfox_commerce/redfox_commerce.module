@@ -174,6 +174,12 @@ function redfox_commerce_buy_now_submit($form, FormStateInterface $form_state) {
     }
   }
 
+  // Load the active payment gateway (Razorpay) so it's set on the order.
+  // Without this, PaymentProcess->createPayment() gets a null gateway plugin
+  // and crashes with "Call to a member function getPluginId() on null".
+  $payment_gateway_storage = $entity_type_manager->getStorage('commerce_payment_gateway');
+  $payment_gateway = $payment_gateway_storage->load('razorpay');
+
   if (!$buy_now_order) {
     $buy_now_order = $order_storage->create([
       'type' => 'default',
@@ -181,12 +187,17 @@ function redfox_commerce_buy_now_submit($form, FormStateInterface $form_state) {
       'mail' => \Drupal::currentUser()->getEmail(),
       'uid' => \Drupal::currentUser()->id(),
       'store_id' => $store->id(),
+      'payment_gateway' => $payment_gateway ? $payment_gateway->id() : NULL,
       'data' => [
         'is_buy_now' => TRUE,
       ],
     ]);
     $buy_now_order->save();
     $session->set('commerce_buy_now_order_id', $buy_now_order->id());
+  }
+  elseif ($payment_gateway && $buy_now_order->get('payment_gateway')->isEmpty()) {
+    // Ensure existing re-used orders also have the gateway set.
+    $buy_now_order->set('payment_gateway', $payment_gateway->id());
   }
 
   // Clear any existing items in the Buy Now order to ensure "only this product".

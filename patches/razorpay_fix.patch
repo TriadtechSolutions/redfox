@@ -1,0 +1,49 @@
+diff -ur a/src/Plugin/Commerce/PaymentGateway/RazorpayCheckout.php b/src/Plugin/Commerce/PaymentGateway/RazorpayCheckout.php
+--- a/src/Plugin/Commerce/PaymentGateway/RazorpayCheckout.php	2023-05-05 19:46:33.000000000 +0530
++++ b/src/Plugin/Commerce/PaymentGateway/RazorpayCheckout.php	2026-06-06 11:41:01.979753182 +0530
+@@ -59,22 +59,7 @@
+             ] + parent::defaultConfiguration();
+     }
+ 
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+-    {
+-        return new static(
+-            $configuration,
+-            $plugin_id,
+-            $plugin_definition,
+-            $container->get('entity_type.manager'),
+-            $container->get('plugin.manager.commerce_payment_type'),
+-            $container->get('plugin.manager.commerce_payment_method_type'),
+-            $container->get('datetime.time'),
+-            $container->get('commerce_price.minor_units_converter')
+-        );
+-    }
++
+ 
+     /**
+      * {@inheritdoc}
+diff -ur a/src/PluginForm/RazorpayForm.php b/src/PluginForm/RazorpayForm.php
+--- a/src/PluginForm/RazorpayForm.php	2023-05-05 19:46:33.000000000 +0530
++++ b/src/PluginForm/RazorpayForm.php	2026-06-06 11:44:43.042407882 +0530
+@@ -158,7 +158,8 @@
+         $orderId = \Drupal::routeMatch()->getParameter('commerce_order')->id();
+ 
+         $order = $this->payment->getOrder();
+-        $address = $order->getBillingProfile()->address->first();
++        $billing_profile = $order->getBillingProfile();
++        $address = $billing_profile ? $billing_profile->get('address')->first() : NULL;
+         $currency = $this->payment->getAmount()->getCurrencyCode();
+ 
+         $orderAmount = ($this->payment->getAmount()->getNumber()) * 100;
+@@ -198,7 +199,7 @@
+             'currency'      => $currency,
+             'callback_url'  => $callbackUrl,
+             'prefill'       => [
+-                'name'      => $address->getGivenName() . " " . $address->getFamilyName(),
++                'name'      => $address ? trim($address->getGivenName() . " " . $address->getFamilyName()) : '',
+                 'email'     => $order->getEmail(),
+                 'contact'   => '',
+             ],
