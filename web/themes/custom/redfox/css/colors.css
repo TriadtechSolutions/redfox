@@ -36,16 +36,16 @@ body {
 
 @media (max-width: 991px) {
   #navbar-main {
-      display: flex;
-      flex-wrap: wrap;
-      /* Allows dropdowns to take full width */
-      align-items: center;
-      /* justify-content: flex-start; */
-      /* We will use margins to push items */
-      padding: 0.5rem 1rem;
-      position: relative;
-      flex-direction: row;
-      
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows dropdowns to take full width */
+    align-items: center;
+    /* justify-content: flex-start; */
+    /* We will use margins to push items */
+    padding: 0.5rem 1rem;
+    position: relative;
+    flex-direction: row;
+
   }
 }
 
@@ -60,16 +60,20 @@ a:focus,
 .link:focus {
   color: #018fe2;
 }
+
 .nav-item .dropdown-item a.active {
   color: white;
 }
+
 .nav-link {
   color: rgb(231, 231, 231);
 }
+
 .nav-link:hover,
 .nav-link:focus {
   color: rgb(231, 231, 231);
 }
+
 a:active,
 .link:active {
   color: #23aeff;
@@ -135,11 +139,11 @@ a:active,
 
 
 #navbar-main img {
-  width: 75px;
+  width: 65px;
 }
 
 .navbar-brand {
-  padding: 10px 0;
+  padding: 8px 0;
   position: absolute;
   left: 70px;
 }
@@ -161,4 +165,8 @@ a:active,
 
 .contextual-region.block-views-blockproduct-search-block-1 {
   position: unset !important;
+}
+
+.node__content {
+  margin-top: 0px;
 }

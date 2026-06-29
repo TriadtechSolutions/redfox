@@ -69,8 +69,8 @@ function redfox_preprocess_page(&$variables) {
   }
 
 
-  // Load product listing styling (brand/category products)
-  if ($route_name == 'view.brand_products.page_1' || $route_name == 'view.category_products.page_1') {
+  // Load product listing styling (brand/category products/search)
+  if ($route_name == 'view.brand_products.page_1' || $route_name == 'view.category_products.page_1' || $route_name == 'view.product_search.page_1') {
     $variables['#attached']['library'][] = 'redfox/product-listing-styling';
   }
 

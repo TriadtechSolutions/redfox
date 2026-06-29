@@ -1,0 +1,17 @@
+<div class="product-card product-card--search">
+  <div class="product-card__image-wrapper">
+    {{ fields.field_product_image.content }}
+  </div>
+
+  <div class="product-card__content">
+    <div style="font-size: 0.8em; color: #666; margin-bottom: 5px;">{{ fields.sku.content }}</div>
+    <h3 class="product-card__title">
+      {{ fields.title.content }}
+    </h3>
+
+    <div class="product-card__price-row">
+      <div class="product-card__price"></div>
+      <div class="product-card__status">In Stock</div>
+    </div>
+  </div>
+</div>

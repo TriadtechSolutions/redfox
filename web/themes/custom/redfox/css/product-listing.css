@@ -5,6 +5,7 @@
 
 .sidebar_first {
     padding-right: 30px;
+    padding-top: 30px;
 }
 
 .sidebar_first .views-exposed-form {
@@ -147,7 +148,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    padding: 0 0 20px 0;
+    padding: 30px 0 20px 0;
 }
 
 .product-card {
@@ -280,4 +281,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* =================================================
+   PRODUCT LISTING (SEARCH PAGE SPECIFIC)
+   ================================================= */
+.product-grid--search {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 30px 0 20px 0;
+}
+
+.product-card--search {
+    padding: 12px;
+}
+
+.product-card--search .product-card__image-wrapper {
+    padding: 5px;
+}
+
+@media (max-width: 1200px) {
+    .product-grid--search {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .product-grid--search {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
