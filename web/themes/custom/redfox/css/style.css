@@ -160,76 +160,101 @@ button[data-drupal-selector^="edit-submit-product-search"]::before {
 }
 
 /* ========================================
-   Tablet & Mobile Header Layout (< 992px)
+   Mobile Header Layout (< 768px)
    ======================================== */
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 
   /* Hide default bootstrap toggler as we use custom ones */
   button.navbar-toggler:not(.tablet-menu-toggle) {
     display: none !important;
   }
 
-  /* 1. Menu Icon (Left) */
-  .tablet-menu-toggle {
-    order: 1 !important;
-    margin-right: 15px;
-    position: absolute;
-    left: 0;
+  /* Hide the search toggle icon - show inline search instead */
+  .tablet-search-toggle {
+    display: none !important;
   }
 
-  /* 2. Logo (Next to Menu) */
+  /* Ensure navbar is flex row */
+  #navbar-main.navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* 1. Logo (Left) */
   #navbar-main .navbar-brand {
-    order: 2 !important;
-    margin-right: 0;
+    order: 1 !important;
+    flex-shrink: 0 !important;
+    margin-right: 0 !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    /* Removed margin-right: auto */
   }
 
   #navbar-main .navbar-brand img {
-    max-height: 40px;
+    max-height: 45px;
     width: auto;
   }
 
-  /* 3. Search Icon (Right Group) */
-  /* Push this and following items to the right */
-  .tablet-search-toggle {
-    order: 3 !important;
-    margin-right: 15px;
-    margin-left: auto;
+  /* 2. CollapsingNavbar/Search centered */
+  #CollapsingNavbar {
+    order: 2 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: 45% !important;
+    max-width: 50% !important;
+    margin: 0 !important;
   }
 
-  /* 4. Cart Icon (Right Group) */
+  /* Target the primary search form */
+  .navbar .form-inline.navbar-form {
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .navbar .form-inline.navbar-form .views-exposed-form {
+    width: 100% !important;
+  }
+
+  /* Hide the secondary/overlay search block */
+  #block-redfox-views-block-product-search-block-1 {
+    display: none !important;
+  }
+
+  /* 3. Cart Icon (Right group — pushed right via margin-left: auto) */
   #block-redfox-cart {
-    order: 4 !important;
+    order: 3 !important;
     position: static !important;
-    /* Reset layout from desktop absolute */
-    margin-right: 35px;
+    margin-right: 12px !important;
+    margin-left: auto !important;
     top: auto;
-    right: 3px;
   }
 
-  /* Ensure icon size matches others if needed */
   #block-redfox-cart .cart-block--summary__icon img {
-    width: 24px;
+    width: 22px;
     height: auto;
     vertical-align: middle;
   }
 
-  /* Hide the "0 items" text if desired? User: [Cart Icon]. Usually implies icon only. */
   #block-redfox-cart .cart-block--summary__count {
     display: none;
   }
 
-  /* 5. Login Icon (Rightmost) */
+  /* 4. Login Icon */
   #block-redfox-useraccountmenu {
-    order: 5 !important;
-    position: absolute !important;
+    order: 4 !important;
+    position: static !important;
     top: auto;
-    right: 3px;
   }
 
-  /* Login Icon Customization - Icon Only */
   #block-redfox-useraccountmenu ul.flex-row {
     margin: 0;
     padding: 0;
@@ -238,7 +263,185 @@ button[data-drupal-selector^="edit-submit-product-search"]::before {
 
   #block-redfox-useraccountmenu .nav-link {
     font-size: 0 !important;
-    /* Hide "Log in" text */
+    padding: 5px;
+    line-height: 1;
+    display: block;
+  }
+
+  #block-redfox-useraccountmenu .nav-link:before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3e%3ccircle cx='12' cy='7' r='4'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  /* 5. Hamburger Menu Toggle (Rightmost) */
+  .tablet-menu-toggle {
+    order: 5 !important;
+    position: static !important;
+    margin-right: -15px !important;
+    margin-left: 0 !important;
+  }
+
+  /* Main Navigation dropdown (full width, centered items) */
+  #block-redfox-mainnavigation {
+    display: none;
+    width: 100%;
+    order: 11;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 999;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #block-redfox-mainnavigation.show-tablet-menu {
+    display: block !important;
+  }
+
+  #block-redfox-mainnavigation .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  #block-redfox-mainnavigation .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: center;
+  }
+
+  #block-redfox-mainnavigation .nav-link {
+    padding: 15px 20px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  #block-redfox-mainnavigation .nav-link:hover {
+    background-color: #f8f9fa;
+  }
+
+  #header {
+    position: relative;
+  }
+}
+
+/* ========================================
+   Tablet Header Layout (768px - 991px)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+
+  /* Hide default bootstrap toggler as we use custom ones */
+  button.navbar-toggler:not(.tablet-menu-toggle) {
+    display: none !important;
+  }
+
+  /* Hide the search toggle icon */
+  .tablet-search-toggle {
+    display: none !important;
+  }
+
+  /* Ensure navbar is flex row */
+  #navbar-main.navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* 1. Logo (Left) */
+  #navbar-main .navbar-brand {
+    order: 1 !important;
+    flex-shrink: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #navbar-main .navbar-brand img {
+    max-height: 55px;
+    /* Increased logo size */
+    width: auto;
+  }
+
+  /* 2. CollapsingNavbar wraps search form on Tablet - centered */
+  #CollapsingNavbar {
+    order: 2 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    /* Don't grow - fixed width */
+    width: 50% !important;
+    max-width: 55% !important;
+    margin: 0 !important;
+  }
+
+  /* Target the primary search form inside CollapsingNavbar */
+  .navbar .form-inline.navbar-form {
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .navbar .form-inline.navbar-form .views-exposed-form {
+    width: 100% !important;
+  }
+
+  /* Ensure the secondary/overlay search is correctly hidden on tablet */
+  #block-redfox-views-block-product-search-block-1 {
+    display: none !important;
+  }
+
+  /* 3. Cart Icon (Right group, starts right section) */
+  #block-redfox-cart {
+    order: 3 !important;
+    position: static !important;
+    margin-right: 15px !important;
+    margin-left: auto !important;
+    /* Push icons group to the right */
+    top: auto;
+  }
+
+  #block-redfox-cart .cart-block--summary__icon img {
+    width: 24px;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  #block-redfox-cart .cart-block--summary__count {
+    display: none;
+  }
+
+  /* 4. Login Icon (Right) */
+  #block-redfox-useraccountmenu {
+    order: 4 !important;
+    position: static !important;
+    margin-right: 15px !important;
+    top: auto;
+  }
+
+  #block-redfox-useraccountmenu ul.flex-row {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #block-redfox-useraccountmenu .nav-link {
+    font-size: 0 !important;
     padding: 5px;
     line-height: 1;
     display: block;
@@ -249,84 +452,60 @@ button[data-drupal-selector^="edit-submit-product-search"]::before {
     display: inline-block;
     width: 24px;
     height: 24px;
-    /* Using a simple user icon SVG - White */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3e%3ccircle cx='12' cy='7' r='4'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
   }
 
-  /* Hiding Desktop Elements */
-
-  /* Hide the Full Search Bar */
-  #block-redfox-views-block-product-search-block-1 {
-    display: none;
-    width: 100%;
-    order: 10;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    z-index: 2000;
-    padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    border-top: 1px solid #e9ecef;
+  /* 5. Menu Icon (Hamburger) (Rightmost) */
+  .tablet-menu-toggle {
+    order: 5 !important;
+    position: static !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
-  /* Show it when toggled */
-  #block-redfox-views-block-product-search-block-1.search-overlay-visible {
-    display: block !important;
-    background-color: bisque;
-  }
-
-  /* Ensure input container is full width in the dropdown */
-  #block-redfox-views-block-product-search-block-1 .d-flex {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-    border: none;
-  }
-
-  #block-redfox-views-block-product-search-block-1 form {
-    width: 100%;
-  }
-
-  /* Hide the Main Navigation */
+  /* Hide the Main Navigation on tablet until toggled absolute */
   #block-redfox-mainnavigation {
     display: none;
     width: 100%;
     order: 11;
     position: absolute;
     top: 100%;
+    right: 0;
     left: 0;
+    /* Align full-width */
     background: white;
     z-index: 999;
     border-top: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  /* Show it when toggled */
   #block-redfox-mainnavigation.show-tablet-menu {
     display: block !important;
   }
 
-  /* Style the Mobile Menu Items */
   #block-redfox-mainnavigation .navbar-nav {
     flex-direction: column;
     width: 100%;
+    align-items: center;
+    /* Center-align the menu items */
   }
 
   #block-redfox-mainnavigation .nav-item {
     width: 100%;
     border-bottom: 1px solid #f1f1f1;
+    text-align: center;
+    /* Centering */
   }
 
   #block-redfox-mainnavigation .nav-link {
     padding: 15px 20px;
     color: #333;
     font-weight: 500;
-    text-align: left;
+    text-align: center;
+    /* Center-aligned links */
   }
 
   #block-redfox-mainnavigation .nav-link:hover {

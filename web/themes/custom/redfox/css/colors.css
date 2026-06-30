@@ -42,10 +42,16 @@ body {
     align-items: center;
     /* justify-content: flex-start; */
     /* We will use margins to push items */
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem 0rem 9rem;
     position: relative;
     flex-direction: row;
 
+  }
+}
+
+@media (max-width: 767px) {
+  #navbar-main {
+    padding: 0.5rem 1rem 0rem 3rem;
   }
 }
 
@@ -150,9 +156,16 @@ a:active,
 
 @media (max-width: 1024px) {
   .navbar-brand {
-    left: 50px;
+    left: 25px;
   }
 }
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    left: 10px;
+  }
+}
+
 
 .navbar-nav .nav-item {
   margin: 0 5px;
