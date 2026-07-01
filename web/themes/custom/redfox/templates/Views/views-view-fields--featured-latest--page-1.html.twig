@@ -9,12 +9,14 @@
 	</div>
 
 	<div class="product-card__image-wrapper">
-		{{ fields.field_product_image.content }}
+		<a href="{{ fields.view_commerce_product_variation.content|render|striptags|trim }}">
+			{{ fields.field_product_image.content }}
+		</a>
 	</div>
 
 	<div class="product-card__content">
 		<h3 class="product-card__title">
-			{{ fields.title.content }}
+			<a href="{{ fields.view_commerce_product_variation.content|render|striptags|trim }}">{{ fields.title.content }}</a>
 		</h3>
 
 		<div class="product-card__price-row">

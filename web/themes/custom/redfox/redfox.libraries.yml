@@ -110,3 +110,14 @@ commerce-checkout-styling:
   css:
     theme:
       css/commerce-checkout.css: {}
+
+product-zoom:
+  version: VERSION
+  css:
+    theme:
+      css/product-zoom.css: {}
+  js:
+    js/product-zoom.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

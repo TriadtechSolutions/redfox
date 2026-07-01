@@ -310,3 +310,15 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Empty View Styling */
+.view-empty {
+    padding-top: 30px;
+}
+
+.view-empty h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #444;
+    margin: 0;
+}

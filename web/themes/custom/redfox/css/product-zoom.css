@@ -1,0 +1,75 @@
+/**
+ * @file
+ * Product image: desktop magnifier lens styles.
+ */
+
+/* ============================================================
+   Desktop: override container so lens is not clipped
+   ============================================================ */
+@media (pointer: fine) {
+
+    /* Allow the lens and result to overflow the container */
+    .main-image-container {
+        overflow: visible !important;
+        cursor: crosshair;
+    }
+
+    /* Keep the image itself clipped to a nice rounded box */
+    .main-image-container img {
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* Wrapper needs relative positioning so the result box can be placed */
+    .product-images-wrapper {
+        position: relative;
+    }
+}
+
+/* ============================================================
+   Desktop: Magnifier Lens (circular follower on the image)
+   ============================================================ */
+.zoom-lens {
+    display: none;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(172, 4, 1, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(1px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+        0 4px 16px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 10;
+    transform: translateZ(0);
+}
+
+/* ============================================================
+   Desktop: Zoom Result Box (appears to the right of the image)
+   ============================================================ */
+.zoom-result {
+    display: none;
+    position: absolute;
+    left: calc(100% + 1rem);
+    top: 0;
+    width: 360px;
+    height: 360px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    background-repeat: no-repeat;
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* On screens where right-side placement won't fit, show it above */
+@media (max-width: 1100px) and (pointer: fine) {
+    .zoom-result {
+        left: 0;
+        top: calc(-100% - 1rem);
+    }
+}

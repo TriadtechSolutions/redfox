@@ -29,12 +29,13 @@
 
 .product-images-wrapper {
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .main-image-container {
     background: #f8f9fa;
     border-radius: 12px;
-    overflow: hidden;
+    /* overflow managed by product-zoom.css per device type */
     margin-bottom: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -42,9 +43,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    /* needed for absolute-positioned lens */
 }
 
-.main-image-container:hover {
+/* Desktop hover lift is disabled when zoom is active (JS adds .zoom-active class) */
+.main-image-container:not(.zoom-active):hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
