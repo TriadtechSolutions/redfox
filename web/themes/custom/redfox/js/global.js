@@ -219,7 +219,6 @@
           const grid = document.querySelector('.js-hot-deals-grid');
           if (grid) {
             grid.classList.add('show-all');
-            // Hide the button wrapper
             const wrapper = btn.closest('.load-more-wrapper');
             if (wrapper) {
               wrapper.style.display = 'none';
@@ -229,35 +228,99 @@
       });
     }
   };
+
+  Drupal.behaviors.mobileFilterSidebar = {
+    attach: function (context, settings) {
+      once('redfox-sidebar-filter', '#sidebar_first', context).forEach(function (sidebar) {
+        const mainContent = document.querySelector('.main-content');
+        if (!mainContent) return;
+
+        const hasFilters = sidebar.querySelector('.views-exposed-form');
+        if (!hasFilters) return;
+
+        // 1. Create mobile "Filter Products" bar above the product grid
+        const filterBtnWrapper = document.createElement('div');
+        filterBtnWrapper.className = 'mobile-filter-bar d-lg-none';
+
+        const filterBtn = document.createElement('button');
+        filterBtn.className = 'mobile-filter-toggle';
+        filterBtn.type = 'button';
+        filterBtn.innerHTML =
+          '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="margin-right:6px;">' +
+          '<path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.124.325L9 8.303V11.5a.5.5 0 0 1-.25.433l-2.8 1.6a.5.5 0 0 1-.75-.433V8.303L.624 3.825A.5.5 0 0 1 .5 3.5v-2z"/>' +
+          '</svg>Filter Products';
+
+        filterBtnWrapper.appendChild(filterBtn);
+
+        const mainSection = mainContent.querySelector('.section') || mainContent;
+        if (!mainSection.querySelector('.mobile-filter-bar')) {
+          mainSection.insertBefore(filterBtnWrapper, mainSection.firstChild);
+        }
+
+        filterBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.body.classList.add('filters-open');
+        });
+
+        // 2. Add close button inside the sidebar drawer
+        if (!sidebar.querySelector('.sidebar-close-btn')) {
+          const closeBtn = document.createElement('button');
+          closeBtn.type = 'button';
+          closeBtn.className = 'sidebar-close-btn d-lg-none';
+          closeBtn.innerHTML = '&times;';
+          closeBtn.setAttribute('aria-label', 'Close filters');
+          sidebar.insertBefore(closeBtn, sidebar.firstChild);
+
+          closeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.body.classList.remove('filters-open');
+          });
+        }
+
+        // 3. Dimming overlay behind the open drawer
+        let overlay = document.querySelector('.sidebar-filter-overlay');
+        if (!overlay) {
+          overlay = document.createElement('div');
+          overlay.className = 'sidebar-filter-overlay';
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener('click', function () {
+            document.body.classList.remove('filters-open');
+          });
+        }
+      });
+
+      // Close on resize back to desktop
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 992) {
+          document.body.classList.remove('filters-open');
+        }
+      });
+    }
+  };
+
 })(Drupal, once);
 
 Drupal.behaviors.homeBannerSwiper = {
   attach: function (context) {
-
     once('home-banner-swiper', '.home-banner-swiper', context).forEach(function (swiperEl) {
       new Swiper(swiperEl, {
         loop: true,
-
         autoplay: {
           delay: 1500000,
           disableOnInteraction: false,
         },
-
         pagination: {
           el: swiperEl.querySelector('.swiper-pagination'),
           clickable: true,
         },
-
         navigation: {
           nextEl: swiperEl.querySelector('.swiper-button-next'),
           prevEl: swiperEl.querySelector('.swiper-button-prev'),
         },
-
         speed: 1500,
         grabCursor: true,
       });
     });
-
   }
 };
-(jQuery, Drupal, once);

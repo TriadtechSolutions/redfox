@@ -2,7 +2,6 @@
    SIDEBAR FILTERS (EXPOSED FILTERS)
    ================================================= */
 
-
 .sidebar_first {
     padding-right: 30px;
     padding-top: 30px;
@@ -141,7 +140,7 @@
 }
 
 /* =================================================
-   PRODUCT LISTING (BRAND PRODUCTS PAGE)
+   PRODUCT LISTING (BRAND / CATEGORY PRODUCTS PAGE)
    ================================================= */
 
 .product-grid {
@@ -161,6 +160,9 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .product-card:hover {
@@ -175,11 +177,16 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .product-card__image-wrapper img {
     max-width: 100%;
     max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
     margin: 0 !important;
@@ -190,6 +197,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: space-between;
 }
 
 .product-card__title {
@@ -205,12 +213,12 @@
 }
 
 .product-card__title a {
-    color: inherit;
+    color: #000 !important;
     text-decoration: none;
 }
 
 .product-card__title a:hover {
-    color: #c40000;
+    color: #c40000 !important;
 }
 
 .product-card__price-row {
@@ -233,6 +241,18 @@
     font-weight: 600;
 }
 
+/* Container/Layout Tweaks for Brands Page */
+#main-wrapper .container #main.col {
+    padding-top: 40px;
+}
+
+/* Padding on #main.container — brand & category products pages ONLY */
+.path-shop-by-brands #main.container,
+.path-shop-by-category #main.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 /* Responsive Grid for Products */
 @media (max-width: 1200px) {
     .product-grid {
@@ -243,49 +263,39 @@
 @media (max-width: 768px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 12px;
+        padding: 15px 0;
     }
 
     .product-card {
-        padding: 15px;
+        padding: 12px;
     }
 
     .product-card__title {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    .product-card__price {
+        font-size: 16px;
     }
 }
 
 @media (max-width: 480px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
-        padding: 15px;
+        gap: 10px;
+        padding: 10px 0;
     }
-}
 
-/* Container/Layout Tweaks for Brands Page */
-#main-wrapper .container #main.col {
-    padding-top: 40px;
-}
-
-/* Fix product title coloring */
-.product-card__title a {
-    color: #000 !important;
-}
-
-.product-card__title a:hover {
-    color: #c40000 !important;
-}
-
-/* Simplified Card Layout Adjustments */
-.product-card__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    .product-card {
+        padding: 10px;
+    }
 }
 
 /* =================================================
    PRODUCT LISTING (SEARCH PAGE SPECIFIC)
    ================================================= */
+
 .product-grid--search {
     grid-template-columns: repeat(5, 1fr);
     padding: 30px 0 20px 0;
@@ -311,7 +321,7 @@
     }
 }
 
-/* Empty View Styling */
+/* Empty view message */
 .view-empty {
     padding-top: 30px;
 }
@@ -321,4 +331,130 @@
     font-weight: 600;
     color: #444;
     margin: 0;
+}
+
+/* =================================================
+   MOBILE FILTER DRAWER (off-canvas slide-in)
+   ================================================= */
+
+/* "Filter Products" sticky bar at top on mobile */
+.mobile-filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.mobile-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #c40000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s ease;
+}
+
+.mobile-filter-toggle:hover,
+.mobile-filter-toggle:active {
+    background: #a30000;
+}
+
+/* Dimming overlay */
+.sidebar-filter-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1040;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.filters-open .sidebar-filter-overlay {
+    display: block;
+    opacity: 1;
+}
+
+/* Off-canvas sidebar drawer — mobile & tablet only */
+@media (max-width: 991.98px) {
+
+    /* Prevent horizontal scroll on the page */
+    body,
+    #page-wrapper,
+    #page,
+    #main-wrapper {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Main content takes full width — sidebar is off-canvas */
+    .main-content {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding-top: 0 !important;
+    }
+
+    /* Remove normal sidebar spacing */
+    .sidebar_first {
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Sidebar hidden off-screen to the left */
+    #sidebar_first {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 290px !important;
+        max-width: 85vw !important;
+        height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        background: #fff !important;
+        z-index: 1050 !important;
+        padding: 20px !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 0 !important;
+        border-right: 1px solid #eee !important;
+    }
+
+    /* Slide sidebar in when open */
+    body.filters-open #sidebar_first {
+        transform: translateX(0) !important;
+    }
+}
+
+/* Close button inside the drawer */
+.sidebar-close-btn {
+    display: block;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #444;
+    cursor: pointer;
+    margin-bottom: 12px;
+    padding: 0;
+    text-align: right;
+    width: 100%;
+    font-weight: 300;
+    transition: color 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+    color: #c40000;
 }
